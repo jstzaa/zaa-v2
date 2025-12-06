@@ -12,6 +12,10 @@
       referrerpolicy="no-referrer"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <title>zaa-dev</title>
   </head>
   <body>
@@ -19,7 +23,7 @@
     <div class="flex fixed top-0 w-full h-15 z-50">
       <button
         id="sidebar"
-        class="flex flex-col py-2 mx-6 absolute right-0 top-1/2 -translate-y-1/2 lg:hidden bg-hvPrimary/50 backdrop-blur-md w-10 h-10 justify-center items-center rounded-full shadow-md"
+        class="flex flex-col py-2 mx-6 absolute right-0 top-1/2 -translate-y-1/2 lg:hidden bg-hvPrimary/50 backdrop-blur-sm w-10 h-10 justify-center items-center rounded-full shadow-md"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -28,7 +32,7 @@
 
       <nav
         id="navbar"
-        class="flex flex-row py-6 opacity-0 lg:opacity-100 lg:py-3 px-9 justify-center mt-0 lg:mt-5 bg-hvPrimary/50 backdrop-blur-sm rounded-2xl lg:rounded-full fixed top-16 lg:top-0 right-6 lg:left-1/2 lg:-translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
+        class="flex flex-row py-6 invisible lg:visible lg:py-3 px-9 justify-center mt-0 lg:mt-5 bg-hvPrimary/50 backdrop-blur-sm rounded-2xl lg:rounded-full fixed top-16 lg:top-0 right-6 lg:left-1/2 lg:-translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
       >
         <ul>
           <li
@@ -36,8 +40,7 @@
           >
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#skills">Tech Stack</a>
-            <a href="">Tools</a>
+            <a href="#skills">Skills</a>
             <a href="">Project</a>
             <a href="">Experience</a>
             <a href="">Contact</a>
@@ -133,15 +136,47 @@
     <!-- Skills & Project Section -->
     <section id="skills">
       <div class="bg-grid">
-        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+        <div
+          class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5"
+          x-data="{ activeTab: 'tab1' }"
+        >
           <h1
             class="text-3xl md:text-4xl font-bold"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            Tech Stack
+            Skills
           </h1>
           <div
+            class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out"
+              :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"
+            ></div>
+
+            <button
+              @click="activeTab = 'tab1'"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300"
+              :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
+              type="button"
+            >
+              Tech Stack
+            </button>
+
+            <button
+              @click="activeTab = 'tab2'"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300"
+              :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
+              type="button"
+            >
+              Tools
+            </button>
+          </div>
+          <div
+            x-show="activeTab === 'tab1'"
             class="grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4"
             data-aos="fade-up"
             data-aos-delay="300"
@@ -187,6 +222,49 @@
             >
               <img src="/src/img/mysql.svg" alt="" class="h-12 w-12" />
               <p class="text-base">MySQL</p>
+            </div>
+          </div>
+          <div
+            x-show="activeTab === 'tab2'"
+            class="grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-1 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/vscode.svg" alt="" class="h-12 w-12" />
+              <p class="text-base">VS Code</p>
+            </div>
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/git.svg" alt="" class="h-12 w-12" />
+              <p class="text-base">Git</p>
+            </div>
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/github.svg" alt="" class="h-12 w-12" />
+              <p class="text-base">GitHub</p>
+            </div>
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/vercel.svg" alt="" class="h-12" />
+              <p class="text-base">Vercel</p>
+            </div>
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/canva.svg" alt="" class="h-12 w-12" />
+              <p class="text-base">Canva</p>
+            </div>
+            <div
+              class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+            >
+              <img src="/src/img/capcut.svg" alt="" class="h-12 w-12" />
+              <p class="text-base">Capcut</p>
             </div>
           </div>
         </div>
