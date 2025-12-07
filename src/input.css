@@ -58,4 +58,8 @@
   .hamburger-line {
     @apply w-5 h-0.5 bg-dark rounded-full block my-0.5;
   }
+
+  [x-cloak] {
+    display: none !important;
+  }
 }
