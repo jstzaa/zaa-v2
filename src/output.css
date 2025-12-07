@@ -331,6 +331,9 @@
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
+  .w-15 {
+    width: calc(var(--spacing) * 15);
+  }
   .w-32 {
     width: calc(var(--spacing) * 32);
   }
@@ -345,6 +348,9 @@
   }
   .w-\[calc\(50\%-4px\)\] {
     width: calc(50% - 4px);
+  }
+  .w-auto {
+    width: auto;
   }
   .w-full {
     width: 100%;
