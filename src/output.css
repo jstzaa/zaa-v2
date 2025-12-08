@@ -554,8 +554,14 @@
   .border-secondary {
     border-color: #929aab;
   }
+  .border-secondary\/0 {
+    border-color: color-mix(in oklab, #929aab 0%, transparent);
+  }
   .border-secondary\/20 {
     border-color: color-mix(in oklab, #929aab 20%, transparent);
+  }
+  .border-secondary\/50 {
+    border-color: color-mix(in oklab, #929aab 50%, transparent);
   }
   .bg-black {
     background-color: var(--color-black);
@@ -770,6 +776,9 @@
   }
   .opacity-0 {
     opacity: 0%;
+  }
+  .opacity-100 {
+    opacity: 100%;
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
@@ -1038,6 +1047,11 @@
   .lg\:text-center {
     @media (width >= 64rem) {
       text-align: center;
+    }
+  }
+  .lg\:opacity-0 {
+    @media (width >= 64rem) {
+      opacity: 0%;
     }
   }
   .lg\:grayscale {
