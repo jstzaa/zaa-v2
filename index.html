@@ -41,7 +41,7 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="">Project</a>
+            <a href="#project">Projects</a>
             <a href="">Experience</a>
             <a href="">Contact</a>
           </li>
@@ -122,18 +122,15 @@
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            Progress-oriented Software Engineer seeking a challenging position
-            to apply expertise in designing and implementing innovative
-            solutions for complex engineering challenges. Proven track record of
-            success in project management, problem-solving, and cross-functional
-            collaboration. Adept at utilising cutting-edge technologies to
-            optimise processes and enhance overall efficiency.
+            A student with a high interest and enthusiasm for developing in the
+            field of technology, who is dedicated to software development in
+            order to create relevant solutions to problems in the digital world.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Skills & Project Section -->
+    <!-- Skills Section -->
     <section id="skills">
       <div class="bg-grid">
         <div
@@ -159,7 +156,7 @@
 
             <button
               @click="activeTab = 'tab1'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
               :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
               type="button"
             >
@@ -168,7 +165,7 @@
 
             <button
               @click="activeTab = 'tab2'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
               :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
               type="button"
             >
@@ -179,6 +176,17 @@
             class="relative w-full flex justify-center min-h-[650px] md:min-h-[500px] lg:min-h-[400px]"
           >
             <div
+              x-data="{ 
+                skills: [
+                  { name: 'HTML', logo: 'src/img/html.svg' },
+                  { name: 'CSS', logo: 'src/img/css.svg' },
+                  { name: 'JavaScript', logo: 'src/img/javascript.svg' },
+                  { name: 'Bootstrap', logo: 'src/img/bootstrap.svg' },
+                  { name: 'Tailwind', logo: 'src/img/tailwind.svg' },
+                  { name: 'Laravel', logo: 'src/img/laravel.svg' },
+                  { name: 'MySQL', logo: 'src/img/mysql.svg' }
+                ] 
+              }"
               x-show="activeTab === 'tab1'"
               class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4"
               data-aos="fade-up"
@@ -186,133 +194,107 @@
               x-transition.opacity
               x-transition.duration.300ms
             >
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-1 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/html.svg"
-                  alt="HTML Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">HTML</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img src="/src/img/css.svg" alt="CSS Logo" class="h-12 w-12" />
-                <p class="text-base">CSS</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/javascript.svg"
-                  alt="JavaScript Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">JavaScript</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/bootstrap.svg"
-                  alt="Bootstrap Logo"
-                  class="h-12"
-                />
-                <p class="text-base">Bootstrap</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/tailwind.svg"
-                  alt="Tailwind Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">Tailwind</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/laravel.svg"
-                  alt="Laravel Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">Laravel</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/mysql.svg"
-                  alt="MySQL Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">MySQL</p>
-              </div>
+              <template x-for="skill in skills" :key="skill.name">
+                <div
+                  class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <img
+                    :src="skill.logo"
+                    :alt="skill.name + ' Logo'"
+                    class="h-12 w-12 object-contain"
+                  />
+                  <p class="text-base" x-text="skill.name"></p>
+                </div>
+              </template>
             </div>
             <div
+              x-data="{ 
+                tools: [
+                  { name: 'VS Code', logo: 'src/img/vscode.svg' },
+                  { name: 'Git', logo: 'src/img/git.svg' },
+                  { name: 'GitHub', logo: 'src/img/github.svg' },
+                  { name: 'Vercel', logo: 'src/img/vercel.svg' },
+                  { name: 'Canva', logo: 'src/img/canva.svg' },
+                  { name: 'Capcut', logo: 'src/img/capcut.svg' }
+                ] 
+              }"
               x-show="activeTab === 'tab2'"
               class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4"
               x-cloak
               x-transition.opacity
               x-transition.duration.300ms
             >
+              <template x-for="tool in tools" :key="tool.name">
+                <div
+                  class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <img
+                    :src="tool.logo"
+                    :alt="tool.name + ' Logo'"
+                    class="h-12 w-12 object-contain"
+                  />
+                  <p class="text-base" x-text="tool.name"></p>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project">
+      <div class="bg-hvPrimary">
+        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+          <h1
+            class="text-3xl md:text-4xl font-bold"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Projects
+          </h1>
+          <div
+            x-data="{
+              protfolios: [
+                {name: 'Portfolio V2', desc: 'Website portfolio pribadi', foto: 'src/img/porto1'}
+              ]
+            }"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <!-- <div
+              class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/10 overflow-hidden cursor-pointer"
+            >
+              <img
+                class="w-full h-full scale-105 object-cover transition-transform duration-500 group-hover:scale-110"
+                src="src/img/porto1.png"
+                alt="Portfolio Image"
+              />
+
               <div
-                class="bg-hvPrimary w-32 h-32 gap-1 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
+                class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <img
-                  src="/src/img/vscode.svg"
-                  alt="VS Code Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">VS Code</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img src="/src/img/git.svg" alt="Git Logo" class="h-12 w-12" />
-                <p class="text-base">Git</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/github.svg"
-                  alt="GitHub Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">GitHub</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img src="/src/img/vercel.svg" alt="Vercel Logo" class="h-12" />
-                <p class="text-base">Vercel</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/canva.svg"
-                  alt="Canva Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">Canva</p>
-              </div>
-              <div
-                class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="/src/img/capcut.svg"
-                  alt="Capcut Logo"
-                  class="h-12 w-12"
-                />
-                <p class="text-base">Capcut</p>
+                <h1 class="text-xl font-bold text-white">Web Portfolio V2</h1>
+                <p class="text-gray-200 text-sm">Website portfolio pribadi</p>
               </div>
             </div>
+
+            <div
+              class="group relative w-full rounded-2xl shadow-xl shadow-secondary/10 overflow-hidden cursor-pointer"
+            >
+              <img
+                class="w-full h-full scale-105 object-cover transition-transform duration-500 group-hover:scale-110"
+                src="src/img/porto1.png"
+                alt="Portfolio Image"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              >
+                <h1 class="text-xl font-bold text-white">Web Portfolio V2</h1>
+                <p class="text-gray-200 text-sm">Website portfolio pribadi</p>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
