@@ -62,4 +62,12 @@
   [x-cloak] {
     display: none !important;
   }
+
+  .bg-footer {
+    background: radial-gradient(
+      125% 125% at 50% 10%,
+      var(--color-primary) 40%,
+      #6366f1 100%
+    );
+  }
 }

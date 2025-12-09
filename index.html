@@ -42,8 +42,8 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#project">Projects</a>
-            <a href="">Experience</a>
-            <a href="">Contact</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
@@ -73,7 +73,11 @@
               Hi there!<br />I'm Fahriza Kurniawan
             </h1>
             <div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
-              <span id="element" class="text-2xl md:text-3xl"></span>
+              <span
+                id="element"
+                class="text-2xl md:text-3xl"
+                translate="no"
+              ></span>
             </div>
             <div
               class="flex flex-row gap-2 text-5xl"
@@ -126,6 +130,37 @@
             field of technology, who is dedicated to software development in
             order to create relevant solutions to problems in the digital world.
           </p>
+          <h1
+            class="text-2xl md:text-3xl font-bold"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Educational Background
+          </h1>
+          <div
+            x-data="{ 
+                educations: [
+                  { name: 'SMK Al-Khoeriyah', logo: 'src/img/edu/smkak.png', year: '2023 - 2026' },
+                  { name: 'MTsN 1 Kota Tasikmalaya', logo: 'src/img/edu/mtsn1.png', year: '2020 - 2023' },
+                  { name: 'SDN 1 Karangsambung', logo: 'src/img/edu/sdn.png', year: '2014 - 2020'},
+                ] 
+              }"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <template x-for="education in educations" :key="education.name">
+              <div
+                class="flex flex-row gap-4 bg-primary rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 items-center lg:grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
+              >
+                <img :src="education.logo" :alt="education.name" class="h-10" />
+                <div class="flex flex-col">
+                  <h1 class="text-lg font-bold" x-text="education.name"></h1>
+                  <p class="text-base" x-text="education.year"></p>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </section>
@@ -175,6 +210,7 @@
           <div
             class="relative w-full flex justify-center min-h-[650px] md:min-h-[500px] lg:min-h-[400px]"
           >
+            <!-- Tech Stack -->
             <div
               x-data="{ 
                 skills: [
@@ -207,6 +243,8 @@
                 </div>
               </template>
             </div>
+
+            <!-- Tools -->
             <div
               x-data="{ 
                 tools: [
@@ -257,6 +295,7 @@
             x-data="{
               portfolios: [
                 {name: 'Portfolio V2', desc: 'Website portfolio pribadi V2', foto: 'src/img/porto/porto1.png'},
+                {name: 'Detail Aplikasi Petshop', desc: 'Membuat halaman detail aplikasi petshop', foto: 'src/img/porto/porto7.png'},
                 {name: 'Landing Page PPDB', desc: 'Landing page website PPDB SMK Al-Khoeriyah', foto: 'src/img/porto/porto2.png'},
                 {name: 'Landing Page RPL', desc: 'Landing page website RPL SMK Al-Khoeriyah', foto: 'src/img/porto/porto3.png'},
                 {name: 'UI Design Digilib', desc: 'UI Desain Digital Library SMK Al-Khoeriyah', foto: 'src/img/porto/porto4.png'},
@@ -270,10 +309,10 @@
           >
             <template x-for="portfolio in portfolios" :key="portfolio.name">
               <div
-                class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/10 overflow-hidden cursor-pointer border border-secondary/20"
+                class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/20 overflow-hidden cursor-pointer border border-secondary/20"
               >
                 <img
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   :src="portfolio.foto"
                   :alt="portfolio.name"
                 />
@@ -293,22 +332,203 @@
         </div>
       </div>
     </section>
+
     <!-- Experience Section -->
-    <!-- Let's Connect -->
-    <!-- Footer -->
+    <section id="experience">
+      <div class="bg-primary">
+        <div
+          class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5"
+          x-data="{ activeTab: 'tab1' }"
+        >
+          <h1
+            class="text-3xl md:text-4xl font-bold"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Experience
+          </h1>
+          <div
+            class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out"
+              :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"
+            ></div>
+
+            <button
+              @click="activeTab = 'tab1'"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
+              :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
+              type="button"
+            >
+              Work
+            </button>
+
+            <button
+              @click="activeTab = 'tab2'"
+              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
+              :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
+              type="button"
+            >
+              Organization
+            </button>
+          </div>
+          <!-- Work Experience -->
+          <div
+            x-data="{ 
+              experiences: [
+                  { title: 'CV. Access Media', type: 'Internship', year: '2025-2026', logo: 'src/img/work/acm.png', desc: '', tasks:['Membuat landing page perusahaan'] },
+              ]}"
+            x-show="activeTab === 'tab1'"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            x-transition.opacity
+            x-transition.duration.300ms
+            class="flex flex-col gap-8"
+          >
+            <template x-for="(experience, index) in experiences" :key="index">
+              <div
+                class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer"
+              >
+                <img :src="experience.logo" alt="education.name" class="w-20" />
+                <div class="flex flex-col">
+                  <h1 class="text-2xl font-bold" x-text="experience.title"></h1>
+                  <p class="text-lg" x-text="experience.type"></p>
+                  <p class="text-lg" x-text="experience.year"></p>
+                  <p class="text-base" x-text="experience.desc"></p>
+                  <ul
+                    class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1"
+                  >
+                    <template x-for="task in experience.tasks" :key="task">
+                      <li x-text="task"></li>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+            </template>
+          </div>
+          <!-- Organization Experience -->
+          <div
+            x-data="{ 
+              experiences: [
+                  { title: 'OSIS SMK Al-Khoeriyah', type: 'Ketua Sekbid IX (TIK)', year: '2024-2025', logo: 'src/img/org/osis.png' },
+                  { title: 'Jurnalis SMK Al-Khoeriyah', type: 'Editor', year: '2024-2025', logo: 'src/img/org/jurnalis.png' },
+                  { title: 'TIK SMK Al-Khoeriyah', type: 'Ketua', year: '2024-2025', logo: 'src/img/org/tik.png' },
+                  { title: 'OSIS SMK Al-Khoeriyah', type: 'Anggota Sekbid IX (TIK)', year: '2023-2024', logo: 'src/img/org/osis.png' },
+              ]}"
+            x-show="activeTab === 'tab2'"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            x-transition.opacity
+            x-transition.duration.300ms
+            class="flex flex-col gap-8"
+          >
+            <template x-for="(experience, index) in experiences" :key="index">
+              <div
+                class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer"
+              >
+                <img :src="experience.logo" alt="education.name" class="w-20" />
+                <div class="flex flex-col">
+                  <h1 class="text-2xl font-bold" x-text="experience.title"></h1>
+                  <p class="text-lg" x-text="experience.type"></p>
+                  <p class="text-lg" x-text="experience.year"></p>
+                  <p class="text-base" x-text="experience.desc"></p>
+                  <ul
+                    class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1"
+                  >
+                    <template x-for="task in experience.tasks" :key="task">
+                      <li x-text="task"></li>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Let's Connect & Footer Section -->
+    <section id="contact">
+      <div class="bg-footer">
+        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+          <h1
+            class="text-3xl md:text-4xl font-bold"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Let's Connect!
+          </h1>
+          <div
+            class="flex flex-row gap-2 text-5xl"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <a href="https://www.instagram.com/jstzaa28" target="_blank"
+              ><i
+                class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"
+              ></i
+            ></a>
+            <a href="https://github.com/jstzaa" target="_blank"
+              ><i
+                class="fa-brands fa-github hover:scale-105 transition-all duration-200"
+              ></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/"
+              target="_blank"
+              ><i
+                class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"
+              ></i
+            ></a>
+          </div>
+          <div
+            class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <input
+              type="text"
+              placeholder="Nama Anda"
+              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
+            />
+            <input
+              type="email"
+              placeholder="Email Anda"
+              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
+            />
+            <input
+              type="text"
+              placeholder="Subjek"
+              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
+            />
+            <textarea
+              placeholder="Pesan Anda..."
+              class="h-30 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 p-4 placeholder-dark/50 focus:outline-none focus:ring-0"
+            ></textarea>
+            <button
+              class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 text-primary cursor-pointer"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <footer
+          class="flex bg-hvPrimary/30 h-15 backdrop-blur-2xl justify-center items-center border-t border-hvPrimary/50 shadow-2xl shadow-secondary/20"
+        >
+          &copy; 2025 Fahriza Kurniawan. All Rights Reserved.
+        </footer>
+      </div>
+    </section>
 
     <script src="/src/js/script.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       var typed = new Typed("#element", {
-        strings: [
-          "Web Developer",
-          "Graphic Designer",
-          "Video Editor",
-          "Photographer",
-          "Tech Enthusiast",
-        ],
+        strings: ["Web Developer", "Tech Enthusiast"],
         typeSpeed: 100,
         startDelay: 800,
         backSpeed: 100,
