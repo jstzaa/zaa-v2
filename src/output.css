@@ -905,7 +905,7 @@
     font-family: "Archivo", sans-serif;
   }
   .bg-home {
-    --color-primary: #1a1a2e;
+    --color-primary: #f7f7f7;
     position: relative;
     overflow: hidden;
     background-color: var(--color-primary);
