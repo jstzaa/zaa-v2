@@ -1,551 +1,346 @@
 <!DOCTYPE html>
 <html class="bg-primary scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="src/output.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <title>zaa-dev</title>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div class="flex fixed top-0 w-full py-10 h-15 z-50">
-      <button
-        id="sidebar"
-        class="flex flex-col py-2 mx-6 absolute right-0 top-1/2 -translate-y-1/2 lg:hidden bg-hvPrimary/50 backdrop-blur-sm w-10 h-10 justify-center items-center rounded-full shadow-md"
-      >
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="src/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<title>zaa-dev</title>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<div id="nav" class="flex fixed top-0 w-full py-10 h-15 z-50 transition-opacity duration-300 ease-in opacity-0">
+			<button id="sidebar" class="flex flex-col py-2 mx-6 absolute right-0 top-1/2 -translate-y-1/2 lg:hidden bg-hvPrimary/50 backdrop-blur-sm w-10 h-10 justify-center items-center rounded-full shadow-md">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
 
-      <nav
-        id="navbar"
-        class="flex flex-row py-6 invisible lg:visible lg:py-3 px-9 justify-center mt-0 lg:mt-5 bg-hvPrimary/50 backdrop-blur-sm rounded-2xl lg:rounded-full fixed top-16 lg:top-0 right-6 lg:left-1/2 lg:-translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
-      >
-        <ul>
-          <li
-            class="flex flex-col lg:flex-row gap-3 lg:gap-7 text-base text-end lg:text-center"
-          >
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#project">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+			<nav
+				id="navbar"
+				x-data="{
+				active: 'home',
+				setActive(id) {
+					this.active = id;
+				}
+				}"
+				x-init="
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						active = entry.target.id;
+					}
+					});
+				}, { threshold: 0.6 });
 
-    <!-- Hero Section -->
-    <section id="home">
-      <div class="bg-home">
-        <div class="flex flex-col items-center">
-          <div class="pt-32 flex flex-col items-center">
-            <div
-              class="w-56 h-56 rounded-full border-8 border-secondary shadow-lg shadow-dark/50"
-              data-aos="fade-down"
-              data-aos-delay="50"
-            >
-              <img
-                src="src/img/profile.jpg"
-                alt="Profile Picture"
-                class="rounded-full object-cover w-full h-full"
-              />
-            </div>
-            <h1
-              class="text-center font-bold text-3xl md:text-4xl mt-5"
-              data-aos="fade-down"
-              data-aos-delay="150"
-            >
-              Hi there!<br />I'm Fahriza Kurniawan
-            </h1>
-            <div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
-              <span
-                id="element"
-                class="text-2xl md:text-3xl"
-                translate="no"
-              ></span>
-            </div>
-            <div
-              class="flex flex-row gap-2 text-5xl"
-              data-aos="fade-down"
-              data-aos-delay="250"
-            >
-              <a href="https://www.instagram.com/jstzaa28" target="_blank"
-                ><i
-                  class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"
-                ></i
-              ></a>
-              <a href="https://github.com/jstzaa" target="_blank"
-                ><i
-                  class="fa-brands fa-github hover:scale-105 transition-all duration-200"
-                ></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/"
-                target="_blank"
-                ><i
-                  class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"
-                ></i
-              ></a>
-            </div>
-            <div
-              class="h-24 border border-secondary/20 my-20 rounded-full"
-            ></div>
-          </div>
-        </div>
-      </div>
-    </section>
+				document.querySelectorAll('section').forEach(section => {
+					observer.observe(section);
+				});
+				"
+				class="flex flex-row py-6 invisible w-xs lg:w-2xl lg:visible lg:py-3 px-9 justify-center mt-0 lg:mt-5 bg-hvPrimary/50 backdrop-blur-sm rounded-2xl lg:rounded-full fixed top-16 lg:top-0 right-6 lg:left-1/2 lg:-translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
+			>
+				<ul>
+					<li class="flex flex-col lg:flex-row gap-3 lg:gap-7 text-base text-center lg:text-center">
+						<a href="#home" @click="setActive('home')" :class="active === 'home' ? 'opacity-100' : 'opacity-40'">Home</a>
+						<a href="#about" @click="setActive('about')" :class="active === 'about' ? 'opacity-100' : 'opacity-40'">About</a>
+						<a href="#skills" @click="setActive('skills')" :class="active === 'skills' ? 'opacity-100' : 'opacity-40'">Skills</a>
+						<a href="#project" @click="setActive('project')" :class="active === 'project' ? 'opacity-100' : 'opacity-40'">Projects</a>
+						<a href="#experience" @click="setActive('experience')" :class="active === 'experience' ? 'opacity-100' : 'opacity-40'">Experience</a>
+						<a href="#contact" @click="setActive('contact')" :class="active === 'contact' ? 'opacity-100' : 'opacity-40'">Contact</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
 
-    <!-- About Section -->
-    <section id="about">
-      <div class="bg-hvPrimary">
-        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-          <h1
-            class="text-3xl md:text-4xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            About me
-          </h1>
-          <p
-            class="text-base md:text-lg text-center"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            A student with a high interest and enthusiasm for developing in the
-            field of technology, who is dedicated to software development in
-            order to create relevant solutions to problems in the digital world.
-          </p>
-          <h1
-            class="text-2xl md:text-3xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Educational Background
-          </h1>
-          <div
-            x-data="{ 
-                educations: [
-                  { name: 'SMK Al-Khoeriyah', logo: 'src/img/edu/smkak.png', year: '2023 - 2026' },
-                  { name: 'MTsN 1 Kota Tasikmalaya', logo: 'src/img/edu/mtsn1.png', year: '2020 - 2023' },
-                  { name: 'SDN 1 Karangsambung', logo: 'src/img/edu/sdn.png', year: '2014 - 2020'},
-                ] 
-              }"
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <template x-for="education in educations" :key="education.name">
-              <div
-                class="flex flex-row gap-4 bg-primary rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 items-center lg:grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
-              >
-                <img :src="education.logo" :alt="education.name" class="h-10" />
-                <div class="flex flex-col">
-                  <h1 class="text-lg font-bold" x-text="education.name"></h1>
-                  <p class="text-base" x-text="education.year"></p>
-                </div>
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-    </section>
+		<!-- Hero Section -->
+		<section id="home">
+			<div class="bg-home">
+				<div class="flex flex-col items-center">
+					<div class="pt-32 flex flex-col items-center">
+						<div class="w-56 h-56 rounded-full border-8 border-secondary shadow-lg shadow-dark/50" data-aos="fade-down" data-aos-delay="50">
+							<img src="src/img/profile.jpg" alt="Profile Picture" class="rounded-full object-cover w-full h-full" />
+						</div>
+						<h1 class="text-center font-bold text-3xl md:text-4xl mt-5" data-aos="fade-down" data-aos-delay="150">Hi there!<br />I'm Fahriza Kurniawan</h1>
+						<div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
+							<span id="element" class="text-2xl md:text-3xl" translate="no"></span>
+						</div>
+						<div class="flex flex-row gap-2 text-5xl" data-aos="fade-down" data-aos-delay="250">
+							<a href="https://www.instagram.com/jstzaa28" target="_blank"><i class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"></i></a>
+							<a href="https://github.com/jstzaa" target="_blank"><i class="fa-brands fa-github hover:scale-105 transition-all duration-200"></i></a>
+							<a href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/" target="_blank"><i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"></i></a>
+						</div>
+						<div class="h-24 border border-secondary/20 my-20 rounded-full"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="bg-grid">
-        <div
-          class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5"
-          x-data="{ activeTab: 'tab1' }"
-        >
-          <h1
-            class="text-3xl md:text-4xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Skills
-          </h1>
-          <div
-            class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div
-              class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out"
-              :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"
-            ></div>
+		<!-- About Section -->
+		<section id="about">
+			<div class="bg-hvPrimary">
+				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">About me</h1>
+					<p class="text-base md:text-lg text-center" data-aos="fade-up" data-aos-delay="300">A student with a high interest and enthusiasm for developing in the field of technology, who is dedicated to software development in order to create relevant solutions to problems in the digital world.</p>
+					<h1 class="text-2xl md:text-3xl font-bold" data-aos="fade-up" data-aos-delay="300">Educational Background</h1>
+					<div
+						x-data="{ 
+							educations: [
+							{ name: 'SMK Al-Khoeriyah', logo: 'src/img/edu/smkak.png', year: '2023 - 2026' },
+							{ name: 'MTsN 1 Kota Tasikmalaya', logo: 'src/img/edu/mtsn1.png', year: '2020 - 2023' },
+							{ name: 'SDN 1 Karangsambung', logo: 'src/img/edu/sdn.png', year: '2014 - 2020'},
+							] 
+						}"
+						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<template x-for="education in educations" :key="education.name">
+							<div class="flex flex-row gap-4 bg-primary rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 items-center cursor-pointer">
+								<img :src="education.logo" :alt="education.name" class="h-10" />
+								<div class="flex flex-col">
+									<h1 class="text-lg font-bold" x-text="education.name"></h1>
+									<p class="text-base" x-text="education.year"></p>
+								</div>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            <button
-              @click="activeTab = 'tab1'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
-              :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
-              type="button"
-            >
-              Tech Stack
-            </button>
+		<!-- Skills Section -->
+		<section id="skills">
+			<div class="bg-grid">
+				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5" x-data="{ activeTab: 'tab1' }">
+					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">Skills</h1>
+					<div class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]" data-aos="fade-up" data-aos-delay="300">
+						<div class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out" :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"></div>
 
-            <button
-              @click="activeTab = 'tab2'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
-              :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
-              type="button"
-            >
-              Tools
-            </button>
-          </div>
-          <div
-            class="relative w-full flex justify-center min-h-[650px] md:min-h-[500px] lg:min-h-[400px]"
-          >
-            <!-- Tech Stack -->
-            <div
-              x-data="{ 
-                skills: [
-                  { name: 'HTML', logo: 'src/img/stack/html.svg' },
-                  { name: 'CSS', logo: 'src/img/stack/css.svg' },
-                  { name: 'JavaScript', logo: 'src/img/stack/javascript.svg' },
-                  { name: 'Bootstrap', logo: 'src/img/stack/bootstrap.svg' },
-                  { name: 'Tailwind', logo: 'src/img/stack/tailwind.svg' },
-                  { name: 'Laravel', logo: 'src/img/stack/laravel.svg' },
-                  { name: 'MySQL', logo: 'src/img/stack/mysql.svg' }
-                ] 
-              }"
-              x-show="activeTab === 'tab1'"
-              class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4 cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              x-transition.opacity
-              x-transition.duration.300ms
-            >
-              <template x-for="skill in skills" :key="skill.name">
-                <div
-                  class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-                >
-                  <img
-                    :src="skill.logo"
-                    :alt="skill.name + ' Logo'"
-                    class="h-12 w-12 object-contain"
-                  />
-                  <p class="text-base" x-text="skill.name"></p>
-                </div>
-              </template>
-            </div>
+						<button @click="activeTab = 'tab1'" class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer" :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'" type="button">Tech Stack</button>
 
-            <!-- Tools -->
-            <div
-              x-data="{ 
-                tools: [
-                  { name: 'VS Code', logo: 'src/img/tools/vscode.svg' },
-                  { name: 'Git', logo: 'src/img/tools/git.svg' },
-                  { name: 'GitHub', logo: 'src/img/tools/github.svg' },
-                  { name: 'Vercel', logo: 'src/img/tools/vercel.svg' },
-                  { name: 'Canva', logo: 'src/img/tools/canva.svg' },
-                  { name: 'Capcut', logo: 'src/img/tools/capcut.svg' }
-                ] 
-              }"
-              x-show="activeTab === 'tab2'"
-              class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4 cursor-pointer"
-              x-cloak
-              x-transition.opacity
-              x-transition.duration.300ms
-            >
-              <template x-for="tool in tools" :key="tool.name">
-                <div
-                  class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 transition-all duration-300"
-                >
-                  <img
-                    :src="tool.logo"
-                    :alt="tool.name + ' Logo'"
-                    class="h-12 w-12 object-contain"
-                  />
-                  <p class="text-base" x-text="tool.name"></p>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+						<button @click="activeTab = 'tab2'" class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer" :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'" type="button">Tools</button>
+					</div>
+					<div class="relative w-full flex justify-center min-h-[650px] md:min-h-[500px] lg:min-h-[400px]">
+						<!-- Tech Stack -->
+						<div
+							x-data="{ 
+								skills: [
+								{ name: 'HTML', logo: 'src/img/stack/html.svg' },
+								{ name: 'CSS', logo: 'src/img/stack/css.svg' },
+								{ name: 'JavaScript', logo: 'src/img/stack/javascript.svg' },
+								{ name: 'Bootstrap', logo: 'src/img/stack/bootstrap.svg' },
+								{ name: 'Tailwind', logo: 'src/img/stack/tailwind.svg' },
+								{ name: 'Laravel', logo: 'src/img/stack/laravel.svg' },
+								{ name: 'MySQL', logo: 'src/img/stack/mysql.svg' }
+								] 
+							}"
+							x-show="activeTab === 'tab1'"
+							class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4 cursor-pointer"
+							data-aos="fade-up"
+							data-aos-delay="300"
+							x-transition.opacity
+							x-transition.duration.300ms
+						>
+							<template x-for="skill in skills" :key="skill.name">
+								<div class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center">
+									<img :src="skill.logo" :alt="skill.name + ' Logo'" class="h-12 w-12 object-contain" />
+									<p class="text-base" x-text="skill.name"></p>
+								</div>
+							</template>
+						</div>
 
-    <!-- Project Section -->
-    <section id="project">
-      <div class="bg-hvPrimary">
-        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-          <h1
-            class="text-3xl md:text-4xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Projects
-          </h1>
-          <div
-            x-data="{
-              portfolios: [
-                {name: 'Portfolio V2', desc: 'Website portfolio pribadi V2', foto: 'src/img/porto/porto1.png'},
-                {name: 'Detail Aplikasi Petshop', desc: 'Membuat halaman detail aplikasi petshop', foto: 'src/img/porto/porto7.png'},
-                {name: 'Landing Page PPDB', desc: 'Landing page website PPDB SMK Al-Khoeriyah', foto: 'src/img/porto/porto2.png'},
-                {name: 'Landing Page RPL', desc: 'Landing page website RPL SMK Al-Khoeriyah', foto: 'src/img/porto/porto3.png'},
-                {name: 'UI Design Digilib', desc: 'UI Desain Digital Library SMK Al-Khoeriyah', foto: 'src/img/porto/porto4.png'},
-                {name: 'Portfolio V1', desc: 'Website portfolio pribadi V1', foto: 'src/img/porto/porto5.png'},
-                {name: 'Kalkulator', desc: 'Kalkulator sederhana', foto: 'src/img/porto/porto6.png'},
-              ]
-            }"
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <template x-for="portfolio in portfolios" :key="portfolio.name">
-              <div
-                class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/20 overflow-hidden cursor-pointer border border-secondary/20"
-              >
-                <img
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  :src="portfolio.foto"
-                  :alt="portfolio.name"
-                />
+						<!-- Tools -->
+						<div
+							x-data="{ 
+								tools: [
+								{ name: 'VS Code', logo: 'src/img/tools/vscode.svg' },
+								{ name: 'Git', logo: 'src/img/tools/git.svg' },
+								{ name: 'GitHub', logo: 'src/img/tools/github.svg' },
+								{ name: 'Vercel', logo: 'src/img/tools/vercel.svg' },
+								{ name: 'Canva', logo: 'src/img/tools/canva.svg' },
+								{ name: 'Capcut', logo: 'src/img/tools/capcut.svg' }
+								] 
+							}"
+							x-show="activeTab === 'tab2'"
+							class="absolute grid grid-cols-2 gap-10 my-8 md:grid-cols-3 lg:grid-cols-4 cursor-pointer"
+							x-cloak
+							x-transition.opacity
+							x-transition.duration.300ms
+						>
+							<template x-for="tool in tools" :key="tool.name">
+								<div class="bg-hvPrimary w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center">
+									<img :src="tool.logo" :alt="tool.name + ' Logo'" class="h-12 w-12 object-contain" />
+									<p class="text-base" x-text="tool.name"></p>
+								</div>
+							</template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-                <div
-                  class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-100 lg:opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                >
-                  <h1
-                    class="text-xl font-bold text-white"
-                    x-text="portfolio.name"
-                  ></h1>
-                  <p class="text-gray-200 text-sm" x-text="portfolio.desc"></p>
-                </div>
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-    </section>
+		<!-- Project Section -->
+		<section id="project">
+			<div class="bg-hvPrimary">
+				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">Projects</h1>
+					<div
+						x-data="{
+							portfolios: [
+								{name: 'Portfolio V2', desc: 'Personal portfolio website V2', foto: 'src/img/porto/porto1.png'},
+								{name: 'Company Profile CV. Access Media', desc: 'Create a company profile website', foto: 'src/img/porto/porto7.png'},
+								{name: 'Landing Page PPDB', desc: 'Landing page website PPDB SMK Al-Khoeriyah', foto: 'src/img/porto/porto2.png'},
+								{name: 'Landing Page RPL', desc: 'Landing page website RPL SMK Al-Khoeriyah', foto: 'src/img/porto/porto3.png'},
+								{name: 'UI Design Digilib', desc: 'UI Design Digital Library SMK Al-Khoeriyah', foto: 'src/img/porto/porto4.png'},
+								{name: 'Portfolio V1', desc: 'Personal portfolio website V1', foto: 'src/img/porto/porto5.png'},
+								{name: 'Calculator', desc: 'Simple calculator', foto: 'src/img/porto/porto6.png'},
+							]
+						}"
+						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<template x-for="portfolio in portfolios" :key="portfolio.name">
+							<div class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/20 overflow-hidden cursor-pointer border border-secondary/20">
+								<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" :src="portfolio.foto" :alt="portfolio.name" />
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <div class="bg-primary">
-        <div
-          class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5"
-          x-data="{ activeTab: 'tab1' }"
-        >
-          <h1
-            class="text-3xl md:text-4xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Experience
-          </h1>
-          <div
-            class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div
-              class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out"
-              :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"
-            ></div>
+								<div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-100 lg:opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+									<h1 class="text-xl font-bold text-white" x-text="portfolio.name"></h1>
+									<p class="text-gray-200 text-sm" x-text="portfolio.desc"></p>
+								</div>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            <button
-              @click="activeTab = 'tab1'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
-              :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
-              type="button"
-            >
-              Work
-            </button>
+		<!-- Experience Section -->
+		<section id="experience">
+			<div class="bg-primary">
+				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5" x-data="{ activeTab: 'tab1' }">
+					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">Experience</h1>
+					<div class="relative grid grid-cols-2 bg-hvPrimary/50 shadow-xl border border-primary/70 text-sm p-1 rounded-2xl w-[270px]" data-aos="fade-up" data-aos-delay="300">
+						<div class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out" :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"></div>
 
-            <button
-              @click="activeTab = 'tab2'"
-              class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer"
-              :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'"
-              type="button"
-            >
-              Organization
-            </button>
-          </div>
-          <!-- Work Experience -->
-          <div
-            x-data="{ 
-              experiences: [
-                  { title: 'CV. Access Media', type: 'Internship', year: '2025-2026', logo: 'src/img/work/acm.png', desc: '', tasks:['Membuat landing page perusahaan'] },
-              ]}"
-            x-show="activeTab === 'tab1'"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            x-transition.opacity
-            x-transition.duration.300ms
-            class="flex flex-col gap-8"
-          >
-            <template x-for="(experience, index) in experiences" :key="index">
-              <div
-                class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer"
-              >
-                <img :src="experience.logo" alt="education.name" class="w-20" />
-                <div class="flex flex-col">
-                  <h1 class="text-2xl font-bold" x-text="experience.title"></h1>
-                  <p class="text-lg" x-text="experience.type"></p>
-                  <p class="text-lg" x-text="experience.year"></p>
-                  <p class="text-base" x-text="experience.desc"></p>
-                  <ul
-                    class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1"
-                  >
-                    <template x-for="task in experience.tasks" :key="task">
-                      <li x-text="task"></li>
-                    </template>
-                  </ul>
-                </div>
-              </div>
-            </template>
-          </div>
-          <!-- Organization Experience -->
-          <div
-            x-data="{ 
-              experiences: [
-                  { title: 'OSIS SMK Al-Khoeriyah', type: 'Ketua Sekbid IX (TIK)', year: '2024-2025', logo: 'src/img/org/osis.png' },
-                  { title: 'Jurnalis SMK Al-Khoeriyah', type: 'Editor', year: '2024-2025', logo: 'src/img/org/jurnalis.png' },
-                  { title: 'TIK SMK Al-Khoeriyah', type: 'Ketua', year: '2024-2025', logo: 'src/img/org/tik.png' },
-                  { title: 'OSIS SMK Al-Khoeriyah', type: 'Anggota Sekbid IX (TIK)', year: '2023-2024', logo: 'src/img/org/osis.png' },
-              ]}"
-            x-show="activeTab === 'tab2'"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            x-transition.opacity
-            x-transition.duration.300ms
-            class="flex flex-col gap-8"
-          >
-            <template x-for="(experience, index) in experiences" :key="index">
-              <div
-                class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer"
-              >
-                <img :src="experience.logo" alt="education.name" class="w-20" />
-                <div class="flex flex-col">
-                  <h1 class="text-2xl font-bold" x-text="experience.title"></h1>
-                  <p class="text-lg" x-text="experience.type"></p>
-                  <p class="text-lg" x-text="experience.year"></p>
-                  <p class="text-base" x-text="experience.desc"></p>
-                  <ul
-                    class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1"
-                  >
-                    <template x-for="task in experience.tasks" :key="task">
-                      <li x-text="task"></li>
-                    </template>
-                  </ul>
-                </div>
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-    </section>
+						<button @click="activeTab = 'tab1'" class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer" :class="activeTab === 'tab1' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'" type="button">Work</button>
 
-    <!-- Let's Connect & Footer Section -->
-    <section id="contact">
-      <div class="bg-footer">
-        <div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-          <h1
-            class="text-3xl md:text-4xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Let's Connect!
-          </h1>
-          <div
-            class="flex flex-row gap-2 text-5xl"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <a href="https://www.instagram.com/jstzaa28" target="_blank"
-              ><i
-                class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"
-              ></i
-            ></a>
-            <a href="https://github.com/jstzaa" target="_blank"
-              ><i
-                class="fa-brands fa-github hover:scale-105 transition-all duration-200"
-              ></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/"
-              target="_blank"
-              ><i
-                class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"
-              ></i
-            ></a>
-          </div>
-          <div
-            class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <input
-              type="text"
-              placeholder="Nama Anda"
-              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
-            />
-            <input
-              type="email"
-              placeholder="Email Anda"
-              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
-            />
-            <input
-              type="text"
-              placeholder="Subjek"
-              class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0"
-            />
-            <textarea
-              placeholder="Pesan Anda..."
-              class="h-30 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 p-4 placeholder-dark/50 focus:outline-none focus:ring-0"
-            ></textarea>
-            <button
-              class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 text-primary cursor-pointer"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-        <footer
-          class="flex bg-hvPrimary/30 h-15 backdrop-blur-2xl justify-center items-center border-t border-hvPrimary/50 shadow-2xl shadow-secondary/20"
-        >
-          &copy; 2025 Fahriza Kurniawan. All Rights Reserved.
-        </footer>
-      </div>
-    </section>
+						<button @click="activeTab = 'tab2'" class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer" :class="activeTab === 'tab2' ? 'text-dark font-bold' : 'text-gray-600 hover:text-dark'" type="button">Organization</button>
+					</div>
+					<!-- Work Experience -->
+					<div
+						x-data="{ 
+						experiences: [
+							{ title: 'CV. Access Media', type: 'Internship', year: '2025-2026', logo: 'src/img/work/acm.png', desc: '', tasks:['Create a company landing page'] },
+						]}"
+						x-show="activeTab === 'tab1'"
+						data-aos="fade-up"
+						data-aos-delay="300"
+						x-transition.opacity
+						x-transition.duration.300ms
+						class="flex flex-col gap-8"
+					>
+						<template x-for="(experience, index) in experiences" :key="index">
+							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer">
+								<img :src="experience.logo" alt="education.name" class="w-20" />
+								<div class="flex flex-col">
+									<h1 class="text-2xl font-bold" x-text="experience.title"></h1>
+									<p class="text-lg" x-text="experience.type"></p>
+									<p class="text-lg" x-text="experience.year"></p>
+									<p class="text-base" x-text="experience.desc"></p>
+									<ul class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1">
+										<template x-for="task in experience.tasks" :key="task">
+											<li x-text="task"></li>
+										</template>
+									</ul>
+								</div>
+							</div>
+						</template>
+					</div>
+					<!-- Organization Experience -->
+					<div
+						x-data="{ 
+						experiences: [
+							{ title: 'OSIS SMK Al-Khoeriyah', type: 'Head of Section IX (ICT)', year: '2024-2025', logo: 'src/img/org/osis.png' },
+							{ title: 'Jurnalis SMK Al-Khoeriyah', type: 'Editor', year: '2024-2025', logo: 'src/img/org/jurnalis.png' },
+							{ title: 'TIK SMK Al-Khoeriyah', type: 'Extracurricular Club Leader', year: '2024-2025', logo: 'src/img/org/tik.png' },
+							{ title: 'OSIS SMK Al-Khoeriyah', type: 'Member of Section IX (ICT)', year: '2023-2024', logo: 'src/img/org/osis.png' },
+						]}"
+						x-show="activeTab === 'tab2'"
+						data-aos="fade-up"
+						data-aos-delay="300"
+						x-transition.opacity
+						x-transition.duration.300ms
+						class="flex flex-col gap-8"
+					>
+						<template x-for="(experience, index) in experiences" :key="index">
+							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 items-center cursor-pointer">
+								<img :src="experience.logo" alt="education.name" class="w-20" />
+								<div class="flex flex-col">
+									<h1 class="text-2xl font-bold" x-text="experience.title"></h1>
+									<p class="text-lg" x-text="experience.type"></p>
+									<p class="text-lg" x-text="experience.year"></p>
+									<p class="text-base" x-text="experience.desc"></p>
+									<ul class="text-base text-slate-600 list-disc list-outside ml-4 space-y-1">
+										<template x-for="task in experience.tasks" :key="task">
+											<li x-text="task"></li>
+										</template>
+									</ul>
+								</div>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <script src="/src/js/script.js"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      var typed = new Typed("#element", {
-        strings: ["Web Developer", "Tech Enthusiast"],
-        typeSpeed: 100,
-        startDelay: 800,
-        backSpeed: 100,
-        smartBackspace: true,
-        backDelay: 100,
-        loop: true,
-        loopCount: Infinity,
-      });
-    </script>
-    <script>
-      AOS.init({
-        duration: 800,
-        easing: "ease-in-out",
-        once: false,
-        mirror: true,
-        offset: 120,
-      });
-    </script>
-  </body>
+		<!-- Let's Connect & Footer Section -->
+		<section id="contact">
+			<div class="bg-footer">
+				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
+					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">Let's Connect!</h1>
+					<div class="flex flex-row gap-2 text-5xl" data-aos="fade-up" data-aos-delay="300">
+						<a href="https://www.instagram.com/jstzaa28" target="_blank"><i class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"></i></a>
+						<a href="https://github.com/jstzaa" target="_blank"><i class="fa-brands fa-github hover:scale-105 transition-all duration-200"></i></a>
+						<a href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/" target="_blank"><i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"></i></a>
+					</div>
+					<div class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4" data-aos="fade-up" data-aos-delay="300">
+						<input type="text" placeholder="Your Name" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
+						<input type="email" placeholder="Your Email" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
+						<input type="text" placeholder="Subject" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
+						<textarea placeholder="Your Message..." class="h-30 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 p-4 placeholder-dark/50 focus:outline-none focus:ring-0"></textarea>
+						<button class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 text-primary cursor-pointer">Submit</button>
+					</div>
+				</div>
+				<footer class="flex bg-hvPrimary/30 h-15 backdrop-blur-2xl justify-center items-center border-t border-hvPrimary/50 shadow-2xl shadow-secondary/20">&copy; 2025 Fahriza Kurniawan</footer>
+			</div>
+		</section>
+
+		<script src="/src/js/script.js"></script>
+		<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script>
+			var typed = new Typed("#element", {
+				strings: ["Web Developer", "Tech Enthusiast"],
+				typeSpeed: 100,
+				startDelay: 800,
+				backSpeed: 100,
+				smartBackspace: true,
+				backDelay: 100,
+				loop: true,
+				loopCount: Infinity,
+			});
+		</script>
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-in-out",
+				once: false,
+				mirror: true,
+				offset: 120,
+			});
+		</script>
+	</body>
 </html>
