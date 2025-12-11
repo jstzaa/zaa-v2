@@ -18,7 +18,7 @@
 	/* Pastikan elemen .bg-home memiliki tinggi yang memadai */
 	.bg-home {
 		/* Warna dasar */
-		--color-primary: #1a1a2e;
+		var(--color-primary);
 
 		position: relative; /* Penting untuk posisi pseudo-element */
 		overflow: hidden; /* Menyembunyikan bagian background yang digeser */
