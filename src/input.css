@@ -3,80 +3,72 @@
 @import "tailwindcss";
 
 @theme inline {
-	--font-archivo: "Archivo", sans-serif;
-	--color-primary: #f7f7f7;
-	--color-secondary: #929aab;
-	--color-dark: #393e46;
-	--color-hvPrimary: #eeeeee;
+  --font-archivo: "Archivo", sans-serif;
+  --color-primary: #f7f7f7;
+  --color-secondary: #929aab;
+  --color-dark: #393e46;
+  --color-hvPrimary: #eeeeee;
 }
 
 @layer base {
-	body {
-		@apply font-archivo;
-	}
+  body {
+    @apply font-archivo;
+  }
 
-	/* Pastikan elemen .bg-home memiliki tinggi yang memadai */
-	.bg-home {
-		/* Warna dasar */
-		--color-primary: #f7f7f7;
+  .bg-home {
+    background: radial-gradient(
+        ellipse 120% 80% at 70% 20%,
+        rgba(255, 20, 147, 0.15),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 100% 60% at 30% 10%,
+        rgba(0, 255, 255, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 90% 70% at 50% 0%,
+        rgba(138, 43, 226, 0.18),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 110% 50% at 80% 30%,
+        rgba(255, 215, 0, 0.08),
+        transparent 40%
+      ),
+      var(--color-primary);
+  }
 
-		position: relative; /* Penting untuk posisi pseudo-element */
-		overflow: hidden; /* Menyembunyikan bagian background yang digeser */
-		background-color: var(--color-primary); /* Warna solid di bawah gradien */
-		min-height: 100vh; /* Contoh, sesuaikan dengan kebutuhan Anda */
-		width: 100%;
-	}
+  .bg-grid {
+    background: var(--color-primary);
+    background-image: linear-gradient(
+        to right,
+        rgba(71, 85, 105, 0.15) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(71, 85, 105, 0.15) 1px, transparent 1px),
+      radial-gradient(
+        circle at 50% 60%,
+        rgba(236, 72, 153, 0.15) 0%,
+        rgba(168, 85, 247, 0.05) 40%,
+        transparent 70%
+      );
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+  }
 
-	.bg-home::after {
-		content: "";
-		position: absolute;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		z-index: 1;
-		opacity: 1; /* Kontrol opacity gradien keseluruhan jika perlu */
+  .hamburger-line {
+    @apply w-5 h-0.5 bg-dark rounded-full block my-0.5;
+  }
 
-		/* 1. Gabungkan semua gradien radial ke pseudo-element */
-		background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 255, 255, 0.12), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(138, 43, 226, 0.18), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%);
+  [x-cloak] {
+    display: none !important;
+  }
 
-		/* 2. Ukuran background harus lebih besar dari elemen agar pergeseran terlihat */
-		background-size: 200% 200%;
-
-		/* 3. Terapkan animasi pergeseran */
-		animation: aurora-shift 45s ease-in-out infinite alternate;
-	}
-
-	/* 4. Keyframes untuk Pergeseran Posisi Background */
-	@keyframes aurora-shift {
-		0% {
-			background-position: 0% 0%;
-		}
-		50% {
-			/* Pindahkan sedikit ke kanan atas */
-			background-position: 100% 50%;
-		}
-		100% {
-			/* Pindahkan ke kiri bawah */
-			background-position: 0% 100%;
-		}
-	}
-
-	.bg-grid {
-		background: var(--color-primary);
-		background-image: linear-gradient(to right, rgba(71, 85, 105, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(71, 85, 105, 0.15) 1px, transparent 1px), radial-gradient(circle at 50% 60%, rgba(236, 72, 153, 0.15) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
-		background-size: 40px 40px, 40px 40px, 100% 100%;
-	}
-
-	.hamburger-line {
-		@apply w-5 h-0.5 bg-dark rounded-full block my-0.5;
-	}
-
-	[x-cloak] {
-		display: none !important;
-	}
-
-	.bg-footer {
-		background: radial-gradient(125% 125% at 50% 10%, var(--color-primary) 40%, #6366f1 100%);
-	}
+  .bg-footer {
+    background: radial-gradient(
+      125% 125% at 50% 10%,
+      var(--color-primary) 40%,
+      #6366f1 100%
+    );
+  }
 }
