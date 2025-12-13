@@ -43,7 +43,7 @@ function updateIcon() {
 }
 
 // Check local storage or system preference
-if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+if (localStorage.theme === "dark") {
 	html.classList.add("dark");
 	// Initialize correct state without animation for page load
 	const icon = darkToggle.querySelector("#toggle-icon");
