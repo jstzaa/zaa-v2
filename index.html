@@ -98,7 +98,7 @@
 						data-aos-delay="300"
 					>
 						<template x-for="education in educations" :key="education.name">
-							<div class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 items-center cursor-pointer">
+							<div class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer">
 								<img :src="education.logo" :alt="education.name" class="h-10" />
 								<div class="flex flex-col">
 									<h1 class="text-lg font-bold" x-text="education.name"></h1>
@@ -145,7 +145,7 @@
 							x-transition.duration.300ms
 						>
 							<template x-for="skill in skills" :key="skill.name">
-								<div class="bg-hvPrimary dark:bg-slate-800 w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center">
+								<div class="bg-hvPrimary dark:bg-[#222831] w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 dark:shadow-black/20 flex flex-col justify-center items-center">
 									<img :src="skill.logo" :alt="skill.name + ' Logo'" class="h-12 w-12 object-contain" />
 									<p class="text-base" x-text="skill.name"></p>
 								</div>
@@ -171,7 +171,7 @@
 							x-transition.duration.300ms
 						>
 							<template x-for="tool in tools" :key="tool.name">
-								<div class="bg-hvPrimary dark:bg-slate-800 w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 flex flex-col justify-center items-center">
+								<div class="bg-hvPrimary dark:bg-[#222831] w-32 h-32 gap-2 rounded-3xl shadow-xl shadow-secondary/20 dark:shadow-black/20 flex flex-col justify-center items-center">
 									<img :src="tool.logo" :alt="tool.name + ' Logo'" class="h-12 w-12 object-contain" />
 									<p class="text-base" x-text="tool.name"></p>
 								</div>
@@ -204,7 +204,7 @@
 						data-aos-delay="300"
 					>
 						<template x-for="portfolio in portfolios" :key="portfolio.name">
-							<div class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/20 overflow-hidden cursor-pointer border border-secondary/20">
+							<div class="group relative w-full h-48 rounded-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 overflow-hidden cursor-pointer border border-secondary/20">
 								<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" :src="portfolio.foto" :alt="portfolio.name" />
 
 								<div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-100 lg:opacity-0 transition-opacity duration-500 group-hover:opacity-100">
@@ -244,7 +244,7 @@
 						class="flex flex-col gap-8"
 					>
 						<template x-for="(experience, index) in experiences" :key="index">
-							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-slate-800 rounded-2xl py-5 px-10 border border-hvPrimary/50 dark:border-secondary/20 shadow-xl shadow-secondary/20 items-center cursor-pointer">
+							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-[#222831] rounded-2xl py-5 px-10 border border-hvPrimary/50 dark:border-secondary/20 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer">
 								<img :src="experience.logo" alt="education.name" class="w-20" />
 								<div class="flex flex-col">
 									<h1 class="text-2xl font-bold" x-text="experience.title"></h1>
@@ -277,7 +277,7 @@
 						class="flex flex-col gap-8"
 					>
 						<template x-for="(experience, index) in experiences" :key="index">
-							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-slate-800 rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 dark:border-secondary/20 items-center cursor-pointer">
+							<div class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-[#222831] rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 dark:shadow-black/20 dark:border-secondary/20 items-center cursor-pointer">
 								<img :src="experience.logo" alt="education.name" class="w-20" />
 								<div class="flex flex-col">
 									<h1 class="text-2xl font-bold" x-text="experience.title"></h1>
@@ -308,11 +308,11 @@
 						<a href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/" target="_blank"><i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"></i></a>
 					</div>
 					<div class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4" data-aos="fade-up" data-aos-delay="300">
-						<input type="text" placeholder="Your Name" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
-						<input type="email" placeholder="Your Email" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
-						<input type="text" placeholder="Subject" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 px-4 placeholder-dark/50 focus:outline-none focus:ring-0" />
-						<textarea placeholder="Your Message..." class="h-30 border border-dark/20 rounded-2xl bg-primary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 p-4 placeholder-dark/50 focus:outline-none focus:ring-0"></textarea>
-						<button class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 text-primary cursor-pointer">Submit</button>
+						<input type="text" placeholder="Your Name" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+						<input type="email" placeholder="Your Email" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+						<input type="text" placeholder="Subject" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+						<textarea placeholder="Your Message..." class="h-30 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 p-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0"></textarea>
+						<button class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 text-primary cursor-pointer">Submit</button>
 					</div>
 				</div>
 				<footer class="flex bg-hvPrimary/30 h-15 backdrop-blur-2xl justify-center items-center border-t border-hvPrimary/50 shadow-2xl shadow-secondary/20">&copy; 2025 Fahriza Kurniawan</footer>
