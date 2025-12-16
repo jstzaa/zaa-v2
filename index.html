@@ -82,19 +82,45 @@
 		<section id="about">
 			<div class="bg-hvPrimary dark:bg-[#222831] transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('about_title')"></h1>
-					<p class="text-base md:text-lg text-center" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('about_desc')"></p>
-					<h1 class="text-2xl md:text-3xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('edu_title')"></h1>
-					<div x-data class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-aos="fade-up" data-aos-delay="300">
-						<template x-for="education in $store.lang.activeData.educations" :key="education.name">
-							<div class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer">
-								<img :src="education.logo" :alt="education.name" class="h-10" />
-								<div class="flex flex-col">
-									<h1 class="text-lg font-bold" x-text="education.name"></h1>
-									<p class="text-base" x-text="education.year"></p>
-								</div>
+					<div class="flex flex-col-reverse lg:flex-row gap-10 w-full items-center content-start">
+						<div class="flex flex-col gap-3 items-center lg:items-start" data-aos="fade-right" data-aos-delay="300">
+							<h1 class="text-3xl md:text-4xl font-bold" x-text="$store.lang.t('about_title')"></h1>
+							<p class="text-base md:text-lg text-center lg:text-left" x-text="$store.lang.t('about_desc')"></p>
+							<h1 class="text-2xl md:text-3xl font-bold" x-text="$store.lang.t('edu_title')"></h1>
+							<div x-data class="grid grid-cols-1 md:grid-cols-2 gap-3">
+								<template x-for="education in $store.lang.activeData.educations" :key="education.name">
+									<div class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer">
+										<img :src="education.logo" :alt="education.name" class="h-10" />
+										<div class="flex flex-col">
+											<h1 class="text-lg font-bold lg:text-md" x-text="education.name"></h1>
+											<p class="text-base lg:text-sm" x-text="education.year"></p>
+										</div>
+									</div>
+								</template>
 							</div>
-						</template>
+						</div>
+
+						<!-- Business Card Mockup -->
+						<div class="w-full bg-[#1e1e1e] dark:bg-[#0d1117] rounded-xl overflow-hidden shadow-2xl border border-slate-700/50 font-mono text-sm transform group" data-aos="fade-left" data-aos-delay="300">
+							<div class="bg-[#2d2d2d] dark:bg-[#161b22] px-4 py-2 flex items-center justify-between border-b border-slate-700/50">
+								<div class="flex gap-2">
+									<div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+									<div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+									<div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+								</div>
+								<span class="text-slate-400 text-xs font-semibold opacity-70 group-hover:opacity-100 transition-opacity">business_card.json</span>
+								<div class="w-10"></div>
+								<!-- Spacer for centering -->
+							</div>
+							<div class="p-6 text-[#d4d4d4] dark:text-[#c9d1d9] leading-relaxed">
+								<span class="text-[#f1fa8c] dark:text-[#e36209]">{</span><br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"name"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Fahriza Kurniawan"</span>,<br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"role"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Student & Web Developer"</span>,<br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"school"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"SMK Al-Khoeriyah"</span>,<br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"location"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Tasikmalaya, ID"</span>,<br />
+								<span class="text-[#f1fa8c] dark:text-[#e36209]">}</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -179,11 +205,11 @@
 									<h1 class="text-2xl font-bold" x-text="experience.title"></h1>
 									<p class="text-lg" x-text="experience.type"></p>
 									<p class="text-lg" x-text="experience.year"></p>
-									<p class="text-base" x-text="experience.desc"></p>
+									<!-- <p class="text-base" x-text="experience.desc"></p> -->
 									<ul class="text-base text-slate-600 dark:text-gray-300 list-disc list-outside ml-4 space-y-1">
-										<template x-for="task in experience.tasks" :key="task">
+										<!-- <template x-for="task in experience.tasks" :key="task">
 											<li x-text="task"></li>
-										</template>
+										</template> -->
 									</ul>
 								</div>
 							</div>
