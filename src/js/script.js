@@ -204,12 +204,12 @@ document.addEventListener("alpine:init", () => {
 				],
 				portfolios: [
 					{ name: "Portfolio V2", desc: "Website portofolio pribadi V2", foto: "src/img/porto/porto1.png" },
-					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto7.png" },
-					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto2.png" },
-					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto3.png" },
-					{ name: "Desain UI Digilib", desc: "Desain UI Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto4.png" },
-					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto5.png" },
-					{ name: "Kalkulator", desc: "Kalkulator sederhana", foto: "src/img/porto/porto6.png" },
+					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto2.png" },
+					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.png" },
+					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.png" },
+					{ name: "Desain UI Digilib", desc: "Desain UI Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto5.png" },
+					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto6.png" },
+					{ name: "Kalkulator", desc: "Kalkulator sederhana", foto: "src/img/porto/porto7.png" },
 				],
 				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan:", tasks: ["Mempresentasikan profil perusahaan", "Membuat website profil pribadi", "Membuat website profil perusahaan"] }],
 				experiences_org: [
