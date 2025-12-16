@@ -244,6 +244,9 @@
   .bottom-5 {
     bottom: calc(var(--spacing) * 5);
   }
+  .bottom-20 {
+    bottom: calc(var(--spacing) * 20);
+  }
   .left-1 {
     left: calc(var(--spacing) * 1);
   }
@@ -954,6 +957,11 @@
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-slate-800) 50%, transparent);
       }
+    }
+  }
+  .dark\:text-dark {
+    &:where(.dark, .dark *) {
+      color: #393e46;
     }
   }
   .dark\:text-gray-300 {
