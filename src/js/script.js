@@ -171,7 +171,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Portfolio V1", desc: "Personal portfolio website V1", foto: "src/img/porto/porto5.png" },
 					{ name: "Calculator", desc: "Simple calculator", foto: "src/img/porto/porto6.png" },
 				],
-				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "", tasks: ["Create a company landing page"] }],
+				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "During my four-month internship program, I was directly involved in various projects. Through this experience, I developed my technical skills, enhanced my teamwork skills, and gained a deeper understanding of the professional environment and demands of the industry. Here are some of the activities I undertook during my internship:", tasks: ["Presenting a company profile", "Creating a personal profile website", "Creating a company profile website"] }],
 				experiences_org: [
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Head of Section IX (ICT)", year: "2024-2025", logo: "src/img/org/osis.png" },
 					{ title: "Jurnalis SMK Al-Khoeriyah", type: "Editor", year: "2024-2025", logo: "src/img/org/jurnalis.png" },
@@ -211,7 +211,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto5.png" },
 					{ name: "Kalkulator", desc: "Kalkulator sederhana", foto: "src/img/porto/porto6.png" },
 				],
-				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan:", tasks: ["Mempresnetasikan profil perusahaan", "Membuat website profil pribadi", "Membuat website profil perusahaan"] }],
+				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan:", tasks: ["Mempresentasikan profil perusahaan", "Membuat website profil pribadi", "Membuat website profil perusahaan"] }],
 				experiences_org: [
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Ketua Sekbid IX (TIK)", year: "2024-2025", logo: "src/img/org/osis.png" },
 					{ title: "Jurnalis SMK Al-Khoeriyah", type: "Editor", year: "2024-2025", logo: "src/img/org/jurnalis.png" },
