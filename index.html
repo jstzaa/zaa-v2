@@ -118,7 +118,7 @@
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"role"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Student & Web Developer"</span>,<br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"school"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"SMK Al-Khoeriyah"</span>,<br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"location"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Tasikmalaya, ID"</span>,<br />
-								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"github"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"<a href='https://github.com/jstzaa' target='_blank'>https://github.com/jstzaa</a>"</span>,<br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"github"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff] hover:text-primary hover:underline">"<a href='https://github.com/jstzaa' target='_blank'>https://github.com/jstzaa</a>"</span>,<br />
 								<span class="text-[#f1fa8c] dark:text-[#e36209]">}</span>
 							</div>
 						</div>
@@ -235,7 +235,7 @@
 					</div>
 
 					<!-- Experience Modal -->
-					<div x-show="showModal" class="fixed inset-0 z-[60] flex items-center justify-center px-4" style="display: none;">
+					<div x-show="showModal" class="fixed inset-0 z-60 flex items-center justify-center px-4" style="display: none;">
 						<!-- Backdrop -->
 						<div @click="showModal = false" x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
@@ -253,7 +253,7 @@
 										<div class="w-24 h-24 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
 											<img :src="selectedExp.logo" :alt="selectedExp.title" class="w-full h-full object-contain">
 										</div>
-										<div class="flex flex-col gap-2 flex-grow">
+										<div class="flex flex-col gap-2 grow">
 											<h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white leading-tight" x-text="selectedExp.title"></h2>
 											<div class="flex flex-wrap gap-2 justify-center md:justify-start">
 												<span class="flex items-center justify-center px-3 py-1 bg-hvPrimary/20 dark:bg-primary/10 text-dark dark:text-primary rounded-lg text-sm font-semibold" x-text="selectedExp.type"></span>
@@ -266,7 +266,7 @@
 									</div>
 
 									<!-- Divider -->
-									<div class="h-px w-full bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
+									<div class="h-px w-full bg-linear-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
 
 									<!-- Body -->
 									<div class="space-y-6">
