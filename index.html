@@ -308,13 +308,15 @@
 						<a href="https://github.com/jstzaa" target="_blank"><i class="fa-brands fa-github hover:scale-105 transition-all duration-200"></i></a>
 						<a href="https://www.linkedin.com/in/fahriza-kurniawan-877475379/" target="_blank"><i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-200"></i></a>
 					</div>
-					<div class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4" data-aos="fade-up" data-aos-delay="300">
-						<input type="text" :placeholder="$store.lang.t('contact_name')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
-						<input type="email" :placeholder="$store.lang.t('contact_email')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
-						<input type="text" :placeholder="$store.lang.t('contact_subject')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
-						<textarea :placeholder="$store.lang.t('contact_msg')" class="h-30 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 p-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0"></textarea>
-						<button class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 text-primary cursor-pointer" x-text="$store.lang.t('contact_submit')"></button>
-					</div>
+					<form action="https://formspree.io/f/mpqarvgp" method="POST">
+						<div class="flex flex-col w-xs md:w-lg lg:w-2xl gap-4" data-aos="fade-up" data-aos-delay="300">
+							<input type="text" name="name" :placeholder="$store.lang.t('contact_name')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+							<input type="email" name="email" :placeholder="$store.lang.t('contact_email')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+							<input type="text" name="subject" :placeholder="$store.lang.t('contact_subject')" class="h-12 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 px-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0" />
+							<textarea name="message" :placeholder="$store.lang.t('contact_msg')" class="h-30 border border-dark/20 rounded-2xl bg-primary/50 dark:bg-secondary/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 p-4 placeholder-dark/50 dark:placeholder-primary/50 focus:outline-none focus:ring-0"></textarea>
+							<button type="submit" class="h-12 border border-dark/20 rounded-2xl bg-dark/50 backdrop-blur-2xl shadow-xl shadow-secondary/20 dark:shadow-black/20 text-primary cursor-pointer" x-text="$store.lang.t('contact_submit')"></button>
+						</div>
+					</form>
 				</div>
 				<footer class="flex bg-hvPrimary/30 h-15 backdrop-blur-2xl justify-center items-center border-t border-hvPrimary/50 shadow-2xl shadow-secondary/20" x-text="'&copy; ' + $store.lang.t('footer_text')"></footer>
 			</div>
