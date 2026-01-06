@@ -29,12 +29,12 @@ function updateIcon() {
 			icon.innerHTML = "wb_sunny";
 			darkToggle.classList.remove("bg-dark");
 			darkToggle.classList.add("bg-hvPrimary");
-			icon.classList.add("text-dark");
+			icon.classList.add("text-primary");
 		} else {
 			icon.innerHTML = "brightness_3";
 			darkToggle.classList.add("bg-dark");
 			darkToggle.classList.remove("bg-hvPrimary");
-			icon.classList.remove("text-dark");
+			icon.classList.remove("text-primary");
 		}
 		// Reset transform
 		icon.style.transform = "rotate(0deg) scale(1)";
@@ -50,7 +50,7 @@ if (localStorage.theme === "dark") {
 		icon.innerHTML = "wb_sunny";
 		darkToggle.classList.remove("bg-dark");
 		darkToggle.classList.add("bg-hvPrimary");
-		icon.classList.add("text-dark");
+		icon.classList.add("text-primary");
 	}
 } else {
 	html.classList.remove("dark");
