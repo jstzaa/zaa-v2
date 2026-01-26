@@ -163,6 +163,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
+					{ name: "Docs Club Taekwondo", desc: "Create a Taekwondo Club application guide website", foto: "src/img/porto/porto8.png" },
 					{ name: "Portfolio V2", desc: "Personal portfolio website V2", foto: "src/img/porto/porto1.png" },
 					{ name: "Company Profile CV. Access Media", desc: "Create a company profile website", foto: "src/img/porto/porto2.png" },
 					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.png" },
@@ -171,7 +172,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Portfolio V1", desc: "Personal portfolio website V1", foto: "src/img/porto/porto6.png" },
 					{ name: "Calculator", desc: "Simple calculator", foto: "src/img/porto/porto7.png" },
 				],
-				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "During my four-month internship program, I was directly involved in various projects. Through this experience, I developed my technical skills, enhanced my teamwork skills, and gained a deeper understanding of the professional environment and demands of the industry. Here are some of the activities I undertook during my internship.", tasks: ["Presenting a company profile", "Learning Tailwind CSS", "Learning Laravel", "Learn SQL queries", "Creating a personal profile website", "Creating a company profile website"] }],
+				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "During my four-month internship program, I was directly involved in various projects. Through this experience, I developed my technical skills, enhanced my teamwork skills, and gained a deeper understanding of the professional environment and demands of the industry. Here are some of the activities I undertook during my internship.", tasks: ["Presenting a company profile", "Learning Tailwind CSS", "Learning Laravel", "Learn SQL queries", "Creating a personal profile website", "Creating a company profile website","Create a Taekwondo Club application guide website"] }],
 				experiences_org: [
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Head of Section IX (ICT)", year: "2024-2025", logo: "src/img/org/osis.png" },
 					{ title: "Jurnalis SMK Al-Khoeriyah", type: "Editor", year: "2024-2025", logo: "src/img/org/jurnalis.png" },
@@ -203,6 +204,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
+					{ name: "Docs Club Taekwondo", desc: "Membuat website panduan aplikasi Club Taekwondo", foto: "src/img/porto/porto8.png" },
 					{ name: "Portfolio V2", desc: "Website portofolio pribadi V2", foto: "src/img/porto/porto1.png" },
 					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto2.png" },
 					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.png" },
@@ -211,7 +213,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto6.png" },
 					{ name: "Kalkulator", desc: "Kalkulator sederhana", foto: "src/img/porto/porto7.png" },
 				],
-				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan.", tasks: ["Mempresentasikan profil perusahaan", "Mempelajari Tailwind CSS", "Mempelajari Laravel", "Mempelajari kueri SQL", "Membuat website profil pribadi", "Membuat website profil perusahaan"] }],
+				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan.", tasks: ["Mempresentasikan profil perusahaan", "Mempelajari Tailwind CSS", "Mempelajari Laravel", "Mempelajari kueri SQL", "Membuat website profil pribadi", "Membuat website profil perusahaan", "Membuat website panduan aplikasi Club Taekwondo"] }],
 				experiences_org: [
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Ketua Sekbid IX (TIK)", year: "2024-2025", logo: "src/img/org/osis.png" },
 					{ title: "Jurnalis SMK Al-Khoeriyah", type: "Editor", year: "2024-2025", logo: "src/img/org/jurnalis.png" },

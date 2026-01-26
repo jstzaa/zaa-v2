@@ -1357,11 +1357,6 @@
       color: #e36209;
     }
   }
-  .dark\:text-dark {
-    &:where(.dark, .dark *) {
-      color: #393e46;
-    }
-  }
   .dark\:text-gray-300 {
     &:where(.dark, .dark *) {
       color: var(--color-gray-300);
