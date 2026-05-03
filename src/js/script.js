@@ -176,7 +176,6 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.png" },
 					{ name: "UI Design Digilib", desc: "UI Design Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto5.png" },
 					{ name: "Portfolio V1", desc: "Personal portfolio website V1", foto: "src/img/porto/porto6.png" },
-					{ name: "Calculator", desc: "Simple calculator", foto: "src/img/porto/porto7.png" },
 				],
 				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "During my four-month internship program, I was directly involved in various projects. Through this experience, I developed my technical skills, enhanced my teamwork skills, and gained a deeper understanding of the professional environment and demands of the industry. Here are some of the activities I undertook during my internship.", tasks: ["Presenting a company profile", "Learning Tailwind CSS", "Learning Laravel", "Learn SQL queries", "Creating a personal profile website", "Creating a company profile website","Create a Taekwondo Club application guide website"] }],
 				experiences_org: [
@@ -220,7 +219,6 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.png" },
 					{ name: "Desain UI Digilib", desc: "Desain UI Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto5.png" },
 					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto6.png" },
-					{ name: "Kalkulator", desc: "Kalkulator sederhana", foto: "src/img/porto/porto7.png" },
 				],
 				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan.", tasks: ["Mempresentasikan profil perusahaan", "Mempelajari Tailwind CSS", "Mempelajari Laravel", "Mempelajari kueri SQL", "Membuat website profil pribadi", "Membuat website profil perusahaan", "Membuat website panduan aplikasi Club Taekwondo"] }],
 				experiences_org: [
