@@ -102,6 +102,8 @@ document.addEventListener("alpine:init", () => {
 				exp_title: "Experience",
 				exp_tab1: "Work",
 				exp_tab2: "Organization",
+				exp_tab3: "Awards",
+				award_empty: "Add awards or certificates here when you're ready to showcase them.",
 				contact_title: "Let's Connect!",
 				contact_name: "Your Name",
 				contact_email: "Your Email",
@@ -129,6 +131,8 @@ document.addEventListener("alpine:init", () => {
 				exp_title: "Pengalaman",
 				exp_tab1: "Pekerjaan",
 				exp_tab2: "Organisasi",
+				exp_tab3: "Prestasi",
+				// award_empty: "Tambahkan award atau sertifikat di sini saat sudah siap ditampilkan.",
 				contact_title: "Mari Terhubung!",
 				contact_name: "Nama Anda",
 				contact_email: "Email Anda",
@@ -149,10 +153,11 @@ document.addEventListener("alpine:init", () => {
 					{ name: "HTML", logo: "src/img/stack/html.svg" },
 					{ name: "CSS", logo: "src/img/stack/css.svg" },
 					{ name: "JavaScript", logo: "src/img/stack/javascript.svg" },
-					{ name: "Bootstrap", logo: "src/img/stack/bootstrap.svg" },
-					{ name: "Tailwind", logo: "src/img/stack/tailwind.svg" },
 					{ name: "Laravel", logo: "src/img/stack/laravel.svg" },
+					{ name: "Tailwind", logo: "src/img/stack/tailwind.svg" },
+					{ name: "Alpine.JS", logo: "src/img/stack/alpinejs.svg" },
 					{ name: "MySQL", logo: "src/img/stack/mysql.svg" },
+					{ name: "Bootstrap", logo: "src/img/stack/bootstrap.svg" },
 				],
 				utils_tools: [
 					{ name: "VS Code", logo: "src/img/tools/vscode.svg" },
@@ -163,6 +168,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
+					{ name: "Laporin!", desc: "Create a school facility complaint system", foto: "src/img/porto/porto9.png" },
 					{ name: "Docs Club Taekwondo", desc: "Create a Taekwondo Club application guide website", foto: "src/img/porto/porto8.png" },
 					{ name: "Portfolio V2", desc: "Personal portfolio website V2", foto: "src/img/porto/porto1.png" },
 					{ name: "Company Profile CV. Access Media", desc: "Create a company profile website", foto: "src/img/porto/porto2.png" },
@@ -179,6 +185,7 @@ document.addEventListener("alpine:init", () => {
 					{ title: "TIK SMK Al-Khoeriyah", type: "Extracurricular Club Leader", year: "2024-2025", logo: "src/img/org/tik.png" },
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Member of Section IX (ICT)", year: "2023-2024", logo: "src/img/org/osis.png" },
 				],
+				experiences_award: [],
 			},
 			id: {
 				educations: [
@@ -190,10 +197,11 @@ document.addEventListener("alpine:init", () => {
 					{ name: "HTML", logo: "src/img/stack/html.svg" },
 					{ name: "CSS", logo: "src/img/stack/css.svg" },
 					{ name: "JavaScript", logo: "src/img/stack/javascript.svg" },
-					{ name: "Bootstrap", logo: "src/img/stack/bootstrap.svg" },
-					{ name: "Tailwind", logo: "src/img/stack/tailwind.svg" },
 					{ name: "Laravel", logo: "src/img/stack/laravel.svg" },
+					{ name: "Tailwind", logo: "src/img/stack/tailwind.svg" },
+					{ name: "Alpine.JS", logo: "src/img/stack/alpinejs.svg" },
 					{ name: "MySQL", logo: "src/img/stack/mysql.svg" },
+					{ name: "Bootstrap", logo: "src/img/stack/bootstrap.svg" },
 				],
 				utils_tools: [
 					{ name: "VS Code", logo: "src/img/tools/vscode.svg" },
@@ -204,6 +212,7 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
+					{ name: "Laporin!", desc: "Membuat sistem pengaduan sarana sekolah", foto: "src/img/porto/porto9.png" },
 					{ name: "Docs Club Taekwondo", desc: "Membuat website panduan aplikasi Club Taekwondo", foto: "src/img/porto/porto8.png" },
 					{ name: "Portfolio V2", desc: "Website portofolio pribadi V2", foto: "src/img/porto/porto1.png" },
 					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto2.png" },
@@ -220,7 +229,153 @@ document.addEventListener("alpine:init", () => {
 					{ title: "TIK SMK Al-Khoeriyah", type: "Ketua Ekstrakurikuler", year: "2024-2025", logo: "src/img/org/tik.png" },
 					{ title: "OSIS SMK Al-Khoeriyah", type: "Anggota Sekbid IX (TIK)", year: "2023-2024", logo: "src/img/org/osis.png" },
 				],
+				experiences_award: [],
 			},
+		},
+		projectInsights: {
+			en: {
+				"Laporin!": {
+					overview: "A school facility complaint system that turns scattered reports into a simple digital workflow for students and staff.",
+					focus: "Fast reporting, clear categorization, and a clean flow that keeps the complaint process short and easy to understand.",
+					impact: "Helps the school track issues more consistently and makes follow-up easier for everyone involved.",
+					highlights: ["Complaint submission flow", "Structured issue handling", "Student-friendly interface"],
+					themes: ["Workflow design", "Service dashboard", "Simple reporting"],
+				},
+				"Docs Club Taekwondo": {
+					overview: "A documentation and guidance website for a Taekwondo club application, built to help members understand the system faster.",
+					focus: "Clear information hierarchy, practical guidance, and a tidy presentation of club features and usage notes.",
+					impact: "Makes onboarding easier by combining instructions and club documentation in one place.",
+					highlights: ["Guided documentation", "Readable content structure", "Member onboarding support"],
+					themes: ["Guide content", "Information design", "Responsive layout"],
+				},
+				"Portfolio V2": {
+					overview: "A personal portfolio rebuild focused on a cleaner presentation and a stronger visual identity.",
+					focus: "Sharper hierarchy, smoother browsing, and section spacing that makes projects easier to scan.",
+					impact: "Shows projects and skills with a more polished personal brand and a clearer storytelling flow.",
+					highlights: ["Modern personal branding", "Structured portfolio sections", "Responsive showcase layout"],
+					themes: ["Personal brand", "Gallery cards", "Portfolio story"],
+				},
+				"Company Profile CV. Access Media": {
+					overview: "A company profile website created to present business identity, services, and credibility in a professional way.",
+					focus: "Trust-building visuals, concise messaging, and a layout that explains the company quickly.",
+					impact: "Helps the business present itself more clearly to potential clients or partners.",
+					highlights: ["Professional introduction", "Service presentation", "Business credibility"],
+					themes: ["Corporate profile", "Service cards", "Professional layout"],
+				},
+				"Landing Page PPDB": {
+					overview: "A recruitment landing page designed to introduce admissions information and guide prospective students to take action.",
+					focus: "Attention-grabbing hero sections, clear CTAs, and concise blocks that explain the school quickly.",
+					impact: "Supports school promotion by turning key admission details into a clear conversion path.",
+					highlights: ["Admissions promotion", "CTA-driven structure", "Mobile-friendly landing page"],
+					themes: ["Landing page", "Promotion", "Action flow"],
+				},
+				"Landing Page RPL": {
+					overview: "A landing page for the RPL major that presents the program in a simple, persuasive format.",
+					focus: "Program highlights, visual rhythm, and a layout that is easy to scan on every screen size.",
+					impact: "Helps prospective students understand the RPL major faster and more confidently.",
+					highlights: ["Major overview", "Informative sections", "Clear program positioning"],
+					themes: ["Educational landing page", "Program overview", "Responsive sections"],
+				},
+				"UI Design Digilib": {
+					overview: "A UI concept for a digital library that explores a cleaner reading and catalog browsing experience.",
+					focus: "Navigation clarity, reading comfort, and a visual system suited for digital content.",
+					impact: "Provides a design direction for a more organized and pleasant digital library experience.",
+					highlights: ["Library interface concept", "Readable layouts", "Catalog browsing flow"],
+					themes: ["UI concept", "Digital library", "Information architecture"],
+				},
+				"Portfolio V1": {
+					overview: "The first version of the personal portfolio, created as an early foundation for the developer brand.",
+					focus: "Basic self-introduction, project showcase, and an initial responsive structure.",
+					impact: "Served as the starting point for later iterations and design improvements.",
+					highlights: ["First portfolio version", "Early responsive practice", "Foundational personal brand"],
+					themes: ["Portfolio basics", "Introduction page", "Responsive practice"],
+				},
+				"Calculator": {
+					overview: "A lightweight calculator built for quick arithmetic tasks with a straightforward interface.",
+					focus: "Fast input, clear result display, and minimal interaction overhead.",
+					impact: "Shows practical logic handling in a compact UI.",
+					highlights: ["Arithmetic interaction", "Clean output display", "Minimal UI"],
+					themes: ["Logic demo", "Utility app", "Simple controls"],
+				},
+			},
+			id: {
+				"Laporin!": {
+					overview: "Sistem pengaduan sarana sekolah yang mengubah laporan yang tercecer menjadi alur digital yang lebih rapi untuk siswa dan guru.",
+					focus: "Pelaporan cepat, kategori yang jelas, dan alur yang singkat agar proses pengaduan mudah dipahami.",
+					impact: "Membantu sekolah memantau masalah secara lebih teratur dan memudahkan tindak lanjut.",
+					highlights: ["Alur pengajuan pengaduan", "Penanganan masalah terstruktur", "Antarmuka ramah siswa"],
+					themes: ["Desain alur", "Dashboard layanan", "Pelaporan sederhana"],
+				},
+				"Docs Club Taekwondo": {
+					overview: "Website dokumentasi dan panduan untuk aplikasi Club Taekwondo yang dibuat agar anggota lebih cepat memahami sistemnya.",
+					focus: "Hierarki informasi yang jelas, panduan praktis, dan penyajian fitur klub yang rapi.",
+					impact: "Membuat proses onboarding lebih mudah karena instruksi dan dokumentasi terkumpul di satu tempat.",
+					highlights: ["Dokumentasi terpandu", "Struktur konten mudah dibaca", "Dukungan onboarding anggota"],
+					themes: ["Konten panduan", "Desain informasi", "Layout responsif"],
+				},
+				"Portfolio V2": {
+					overview: "Pembaruan portofolio pribadi yang fokus pada tampilan lebih bersih dan identitas visual yang lebih kuat.",
+					focus: "Hierarki yang lebih jelas, navigasi yang lebih halus, dan jarak antarbagian yang lebih nyaman dibaca.",
+					impact: "Menampilkan proyek dan keahlian dengan personal brand yang lebih rapi dan alur cerita yang lebih kuat.",
+					highlights: ["Branding pribadi modern", "Bagian portofolio terstruktur", "Layout showcase responsif"],
+					themes: ["Brand pribadi", "Kartu galeri", "Cerita portofolio"],
+				},
+				"Profil Perusahaan CV. Access Media": {
+					overview: "Website profil perusahaan yang dibuat untuk menampilkan identitas bisnis, layanan, dan kredibilitas secara profesional.",
+					focus: "Visual yang membangun kepercayaan, pesan yang ringkas, dan layout yang membantu perusahaan dipahami dengan cepat.",
+					impact: "Membantu bisnis memperkenalkan diri dengan lebih jelas kepada calon klien atau mitra.",
+					highlights: ["Pengenalan profesional", "Presentasi layanan", "Kredibilitas bisnis"],
+					themes: ["Profil korporat", "Kartu layanan", "Layout profesional"],
+				},
+				"Landing Page PPDB": {
+					overview: "Landing page untuk promosi PPDB yang dirancang untuk memperkenalkan informasi penerimaan dan mendorong calon siswa mengambil aksi.",
+					focus: "Hero yang menarik, CTA yang jelas, dan blok informasi singkat yang memudahkan calon siswa memahami sekolah.",
+					impact: "Mendukung promosi sekolah dengan mengubah detail penting PPDB menjadi jalur aksi yang jelas.",
+					highlights: ["Promosi penerimaan", "Struktur berbasis CTA", "Landing page ramah mobile"],
+					themes: ["Landing page", "Promosi", "Alur aksi"],
+				},
+				"Landing Page RPL": {
+					overview: "Landing page untuk jurusan RPL yang menyajikan program secara sederhana dan persuasif.",
+					focus: "Sorotan program, ritme visual, dan layout yang mudah dipindai di berbagai ukuran layar.",
+					impact: "Membantu calon siswa memahami jurusan RPL dengan lebih cepat dan percaya diri.",
+					highlights: ["Gambaran jurusan", "Bagian informatif", "Posisi program yang jelas"],
+					themes: ["Landing page edukasi", "Ikhtisar program", "Bagian responsif"],
+				},
+				"Desain UI Digilib": {
+					overview: "Konsep UI untuk perpustakaan digital yang mengeksplorasi pengalaman membaca dan menjelajah katalog yang lebih rapi.",
+					focus: "Kejelasan navigasi, kenyamanan membaca, dan sistem visual yang cocok untuk konten digital.",
+					impact: "Memberikan arah desain untuk pengalaman perpustakaan digital yang lebih tertata dan nyaman.",
+					highlights: ["Konsep antarmuka library", "Layout yang mudah dibaca", "Alur browsing katalog"],
+					themes: ["Konsep UI", "Perpustakaan digital", "Arsitektur informasi"],
+				},
+				"Portfolio V1": {
+					overview: "Versi pertama portofolio pribadi yang menjadi pondasi awal untuk membangun personal brand developer.",
+					focus: "Perkenalan diri, showcase proyek, dan struktur responsif yang masih sederhana.",
+					impact: "Menjadi titik awal untuk iterasi berikutnya dan peningkatan desain di versi selanjutnya.",
+					highlights: ["Versi awal portofolio", "Latihan responsif dasar", "Fondasi brand pribadi"],
+					themes: ["Dasar portofolio", "Halaman perkenalan", "Latihan responsif"],
+				},
+				"Kalkulator": {
+					overview: "Kalkulator ringan untuk kebutuhan aritmetika cepat dengan antarmuka yang sederhana.",
+					focus: "Input yang cepat, tampilan hasil yang jelas, dan interaksi yang minimal.",
+					impact: "Menunjukkan pengolahan logika praktis dalam UI yang ringkas.",
+					highlights: ["Interaksi aritmetika", "Tampilan hasil bersih", "UI minimal"],
+					themes: ["Demo logika", "Aplikasi utilitas", "Kontrol sederhana"],
+				},
+			},
+		},
+		projectDetails(name) {
+			const details = this.projectInsights[this.current][name];
+
+			return (
+				details || {
+					overview: this.current === "id" ? "Detail proyek belum ditambahkan." : "Project details are not available yet.",
+					focus: this.current === "id" ? "Fokus utama belum ditentukan." : "Main focus is not defined yet.",
+					impact: this.current === "id" ? "Dampak proyek akan ditampilkan di sini." : "Project impact will appear here.",
+					highlights: [],
+					themes: [],
+				}
+			);
 		},
 		get activeData() {
 			return this.data[this.current];

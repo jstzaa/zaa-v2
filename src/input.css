@@ -1,9 +1,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
 @import "tailwindcss";
 
 @theme inline {
 	--font-archivo: "Archivo", sans-serif;
+	--font-syne: "Syne", sans-serif;
 	--color-primary: #f7f7f7;
 	--color-secondary: #929aab;
 	--color-dark: #393e46;
@@ -35,6 +36,15 @@
 
 	.bg-footer {
 		background: radial-gradient(125% 125% at 50% 10%, var(--color-primary) 40%, #6366f1 100%);
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
 	}
 
 	/* Custom Scrollbar */
