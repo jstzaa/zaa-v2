@@ -11,14 +11,8 @@
 		<title>zaa-dev</title>
 	</head>
 	<body class="dark:text-secondary" x-data>
-		<!-- Navbar -->
+		<!-- Navbar (Desktop only) -->
 		<div id="nav" class="flex fixed top-0 w-full py-10 h-15 z-50 transition-opacity duration-300 ease-in opacity-0">
-			<button id="sidebar" class="flex flex-col py-2 mx-6 absolute right-0 top-1/2 -translate-y-1/2 lg:hidden bg-hvPrimary/50 dark:bg-neutral-800/50 backdrop-blur-sm w-10 h-10 justify-center items-center rounded-full shadow-md">
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-			</button>
-
 			<nav
 				id="navbar"
 				x-data="{
@@ -34,16 +28,16 @@
 						active = entry.target.id;
 					}
 					});
-				}, { threshold: 0.6 });
+				}, { threshold: 0, rootMargin: '-30% 0px -65% 0px' });
 
 				document.querySelectorAll('section').forEach(section => {
 					observer.observe(section);
 				});
 				"
-				class="flex flex-row py-6 invisible w-xs lg:w-2xl lg:visible lg:py-3 px-9 justify-center mt-0 lg:mt-5 bg-hvPrimary/50 dark:bg-dark/50 backdrop-blur-sm rounded-2xl lg:rounded-full fixed top-16 lg:top-0 right-6 lg:left-1/2 lg:-translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
+				class="hidden lg:flex flex-row py-3 px-9 justify-center mt-5 bg-hvPrimary/50 dark:bg-dark/50 backdrop-blur-sm rounded-full fixed top-0 left-1/2 -translate-x-1/2 shadow-lg shadow-dark/20 z-50 transition-all duration-300"
 			>
 				<ul>
-					<li class="flex flex-col lg:flex-row gap-3 lg:gap-7 text-base text-center lg:text-center">
+					<li class="flex flex-row gap-7 text-base text-center">
 						<a href="#home" @click="setActive('home')" :class="active === 'home' ? 'opacity-100' : 'opacity-40'" x-text="$store.lang.t('nav_home')"></a>
 						<a href="#about" @click="setActive('about')" :class="active === 'about' ? 'opacity-100' : 'opacity-40'" x-text="$store.lang.t('nav_about')"></a>
 						<a href="#skills" @click="setActive('skills')" :class="active === 'skills' ? 'opacity-100' : 'opacity-40'" x-text="$store.lang.t('nav_skills')"></a>
@@ -476,15 +470,97 @@
 			</div>
 		</section>
 
-		<!-- Translate Toggle -->
-		<button id="lang-toggle" class="fixed bottom-20 right-5 z-50 w-12 h-12 bg-hvPrimary/50 backdrop-blur-sm text-secondary rounded-full flex justify-center items-center shadow-lg transition-all duration-500 cursor-pointer">
+		<!-- Desktop: Floating Lang Toggle -->
+		<button id="lang-toggle" class="hidden lg:flex fixed bottom-20 right-5 z-50 w-12 h-12 bg-hvPrimary/50 backdrop-blur-sm text-secondary rounded-full justify-center items-center shadow-lg transition-all duration-500 cursor-pointer">
 			<span id="bahasa" class="transition-transform duration-500 font-bold"> EN </span>
 		</button>
 
-		<!-- Dark Mode Toggle -->
-		<button id="dark-toggle" class="fixed bottom-5 right-5 z-50 w-12 h-12 bg-hvPrimary/50 backdrop-blur-sm text-secondary rounded-full flex justify-center items-center shadow-lg transition-all duration-500 cursor-pointer">
+		<!-- Desktop: Floating Dark Mode Toggle -->
+		<button id="dark-toggle" class="hidden lg:flex fixed bottom-5 right-5 z-50 w-12 h-12 bg-hvPrimary/50 backdrop-blur-sm text-secondary rounded-full justify-center items-center shadow-lg transition-all duration-500 cursor-pointer">
 			<span id="toggle-icon" class="material-symbols-outlined transition-transform duration-500"> brightness_3 </span>
 		</button>
+
+		<!-- Mobile Bottom Dockbar -->
+		<nav id="mobile-dock"
+			x-data="{
+				active: 'home',
+				setActive(id) { this.active = id; }
+			}"
+			x-init="
+				const obs = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) active = entry.target.id;
+					});
+				}, { threshold: 0, rootMargin: '-30% 0px -65% 0px' });
+				document.querySelectorAll('section').forEach(s => obs.observe(s));
+			"
+			class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-3 py-2 bg-hvPrimary/80 dark:bg-neutral-900/80 backdrop-blur-md rounded-2xl shadow-xl shadow-dark/20 border border-secondary/10 transition-all duration-300"
+		>
+			<!-- Home -->
+			<a href="#home" @click="setActive('home')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'home' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">home</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_home')"></span> -->
+			</a>
+
+			<!-- About -->
+			<a href="#about" @click="setActive('about')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'about' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">person</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_about')"></span> -->
+			</a>
+
+			<!-- Skills -->
+			<a href="#skills" @click="setActive('skills')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'skills' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">code</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_skills')"></span> -->
+			</a>
+
+			<!-- Projects -->
+			<a href="#project" @click="setActive('project')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'project' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">folder_open</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_project')"></span> -->
+			</a>
+
+			<!-- Experience -->
+			<a href="#experience" @click="setActive('experience')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'experience' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">work</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_experience')"></span> -->
+			</a>
+
+			<!-- Contact -->
+			<a href="#contact" @click="setActive('contact')"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer"
+				:class="active === 'contact' ? 'text-secondary' : 'text-secondary/35'">
+				<span class="material-symbols-outlined" style="font-size:22px">mail</span>
+				<!-- <span class="text-[9px] font-semibold" x-text="$store.lang.t('nav_contact')"></span> -->
+			</a>
+
+			<!-- Divider -->
+			<div class="w-px h-7 bg-secondary/20 mx-1 rounded-full"></div>
+
+			<!-- Dark Mode Toggle (Dock) -->
+			<button id="dark-toggle-dock"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl text-secondary/50 hover:text-secondary transition-all duration-300 cursor-pointer">
+				<span id="toggle-icon-dock" class="material-symbols-outlined transition-transform duration-500" style="font-size:22px">brightness_3</span>
+				<!-- <span class="text-[9px] font-semibold">Theme</span> -->
+			</button>
+
+			<!-- Language Toggle (Dock) -->
+			<button id="lang-toggle-dock"
+				class="flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl text-secondary/50 hover:text-secondary transition-all duration-300 cursor-pointer">
+				<span class="material-symbols-outlined" style="font-size:22px">translate</span>
+				<span id="bahasa-dock" class="text-[9px] font-bold transition-transform duration-300">EN</span>
+			</button>
+		</nav>
 
 		<script src="/src/js/script.js"></script>
 		<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>

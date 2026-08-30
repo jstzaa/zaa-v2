@@ -1,11 +1,3 @@
-const sideButton = document.getElementById("sidebar");
-
-sideButton.addEventListener("click", function () {
-	const navbar = document.getElementById("navbar");
-
-	navbar.classList.toggle("invisible");
-});
-
 document.addEventListener("DOMContentLoaded", () => {
 	const content = document.getElementById("nav");
 	setTimeout(() => {
@@ -14,51 +6,51 @@ document.addEventListener("DOMContentLoaded", () => {
 	}, 300);
 });
 
-// Dark Mode Toggle
-const darkToggle = document.getElementById("dark-toggle");
+// ── Dark Mode ─────────────────────────────────────────────────────────────────
 const html = document.documentElement;
-const icon = darkToggle.querySelector("#toggle-icon");
 
-// Function to update icon
-function updateIcon() {
-	// Add rotation/scale effect
-	icon.style.transform = "rotate(360deg) scale(0)";
+// Desktop toggle elements
+const darkToggle     = document.getElementById("dark-toggle");
+const icon           = darkToggle ? darkToggle.querySelector("#toggle-icon") : null;
 
-	setTimeout(() => {
-		if (html.classList.contains("dark")) {
-			icon.innerHTML = "wb_sunny";
-		} else {
-			icon.innerHTML = "brightness_3";
-		}
-		// Reset transform
-		icon.style.transform = "rotate(0deg) scale(1)";
-	}, 200); // Wait for half the transition time
-}
+// Dock toggle elements
+const darkToggleDock = document.getElementById("dark-toggle-dock");
+const iconDock       = darkToggleDock ? darkToggleDock.querySelector("#toggle-icon-dock") : null;
 
-// Check local storage or system preference
-if (localStorage.theme === "dark") {
-	html.classList.add("dark");
-	// Initialize correct state without animation for page load
-	const icon = darkToggle.querySelector("#toggle-icon");
-	if (icon) {
-		icon.innerHTML = "wb_sunny";
-	}
-} else {
-	html.classList.remove("dark");
-}
+function updateDarkIcons() {
+	const isDark = html.classList.contains("dark");
 
-if (darkToggle) {
-	darkToggle.addEventListener("click", () => {
-		html.classList.toggle("dark");
-
-		if (html.classList.contains("dark")) {
-			localStorage.theme = "dark";
-		} else {
-			localStorage.theme = "light";
-		}
-		updateIcon();
+	[{ el: icon }, { el: iconDock }].forEach(({ el }) => {
+		if (!el) return;
+		el.style.transform = "rotate(360deg) scale(0)";
+		setTimeout(() => {
+			el.innerHTML = isDark ? "wb_sunny" : "brightness_3";
+			el.style.transform = "rotate(0deg) scale(1)";
+		}, 200);
 	});
 }
+
+// Init icon state on load
+function initDarkIcons() {
+	const isDark = html.classList.contains("dark");
+	[icon, iconDock].forEach(el => {
+		if (el) el.innerHTML = isDark ? "wb_sunny" : "brightness_3";
+	});
+}
+
+if (localStorage.theme === "dark") {
+	html.classList.add("dark");
+}
+initDarkIcons();
+
+function toggleDark() {
+	html.classList.toggle("dark");
+	localStorage.theme = html.classList.contains("dark") ? "dark" : "light";
+	updateDarkIcons();
+}
+
+if (darkToggle)     darkToggle.addEventListener("click", toggleDark);
+if (darkToggleDock) darkToggleDock.addEventListener("click", toggleDark);
 
 // Translation Logic
 document.addEventListener("alpine:init", () => {
@@ -377,32 +369,47 @@ document.addEventListener("alpine:init", () => {
 
 // Lang Toggle Listener
 document.addEventListener("DOMContentLoaded", () => {
+	// Desktop lang toggle
 	const langToggle = document.getElementById("lang-toggle");
 	if (langToggle) {
 		langToggle.addEventListener("click", () => {
-			// Note: We use Alpine.store directly, but the click handling is easier via Alpine @click in HTML.
-			// However, to keep consistency with the dark mode implementation:
+			Alpine.store("lang").toggle();
+		});
+	}
+
+	// Mobile dock lang toggle
+	const langToggleDock = document.getElementById("lang-toggle-dock");
+	if (langToggleDock) {
+		langToggleDock.addEventListener("click", () => {
 			Alpine.store("lang").toggle();
 		});
 	}
 });
 
 function updateLangIcon() {
-	const langToggle = document.getElementById("lang-toggle");
-	if (!langToggle) return;
-	const langIcon = langToggle.querySelector("#bahasa");
 	const current = localStorage.getItem("lang") || "en";
+	const nextLabel = current === "id" ? "EN" : "ID";
 
-	// Add rotation/scale effect
-	langIcon.style.transform = "scale(0)";
-
-	setTimeout(() => {
-		if (current === "id") {
-			langIcon.innerHTML = "EN";
-		} else {
-			langIcon.innerHTML = "ID";
+	// Desktop icon
+	const langToggle = document.getElementById("lang-toggle");
+	if (langToggle) {
+		const langIcon = langToggle.querySelector("#bahasa");
+		if (langIcon) {
+			langIcon.style.transform = "scale(0)";
+			setTimeout(() => {
+				langIcon.innerHTML = nextLabel;
+				langIcon.style.transform = "scale(1)";
+			}, 200);
 		}
-		// Reset transform
-		langIcon.style.transform = "scale(1)";
-	}, 200);
+	}
+
+	// Dock icon
+	const bahasaDock = document.getElementById("bahasa-dock");
+	if (bahasaDock) {
+		bahasaDock.style.transform = "scale(0)";
+		setTimeout(() => {
+			bahasaDock.innerHTML = nextLabel;
+			bahasaDock.style.transform = "scale(1)";
+		}, 200);
+	}
 }
