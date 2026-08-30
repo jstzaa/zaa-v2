@@ -27,14 +27,8 @@ function updateIcon() {
 	setTimeout(() => {
 		if (html.classList.contains("dark")) {
 			icon.innerHTML = "wb_sunny";
-			darkToggle.classList.remove("bg-dark");
-			darkToggle.classList.add("bg-hvPrimary");
-			icon.classList.add("text-primary");
 		} else {
 			icon.innerHTML = "brightness_3";
-			darkToggle.classList.add("bg-dark");
-			darkToggle.classList.remove("bg-hvPrimary");
-			icon.classList.remove("text-primary");
 		}
 		// Reset transform
 		icon.style.transform = "rotate(0deg) scale(1)";
@@ -48,9 +42,6 @@ if (localStorage.theme === "dark") {
 	const icon = darkToggle.querySelector("#toggle-icon");
 	if (icon) {
 		icon.innerHTML = "wb_sunny";
-		darkToggle.classList.remove("bg-dark");
-		darkToggle.classList.add("bg-hvPrimary");
-		icon.classList.add("text-primary");
 	}
 } else {
 	html.classList.remove("dark");
@@ -168,14 +159,14 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
-					{ name: "Laporin!", desc: "Create a school facility complaint system", foto: "src/img/porto/porto8.webp" },
-					{ name: "Docs Club Taekwondo", desc: "Create a Taekwondo Club application guide website", foto: "src/img/porto/porto7.webp" },
-					{ name: "Portfolio V2", desc: "Personal portfolio website V2", foto: "src/img/porto/porto6.webp" },
-					{ name: "Company Profile CV. Access Media", desc: "Create a company profile website", foto: "src/img/porto/porto5.webp" },
-					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.webp" },
-					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.webp" },
-					{ name: "UI Design Digilib", desc: "UI Design Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto2.webp" },
-					{ name: "Portfolio V1", desc: "Personal portfolio website V1", foto: "src/img/porto/porto1.webp" },
+					{ name: "Laporin!", desc: "Create a school facility complaint system", foto: "src/img/porto/porto8.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Laravel", "Tailwind CSS", "MySQL", "Alpine.js"] },
+					{ name: "Docs Club Taekwondo", desc: "Create a Taekwondo Club application guide website", foto: "src/img/porto/porto7.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "Tailwind CSS", "JavaScript"] },
+					{ name: "Portfolio V2", desc: "Personal portfolio website V2", foto: "src/img/porto/porto6.webp", github: "https://github.com/jstzaa/zaa-v2", demo: "https://zaa-dev.vercel.app", tech: ["HTML", "Tailwind CSS", "Alpine.js", "JavaScript"] },
+					{ name: "Company Profile CV. Access Media", desc: "Create a company profile website", foto: "src/img/porto/porto5.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Laravel", "Tailwind CSS", "MySQL"] },
+					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "CSS", "JavaScript"] },
+					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "Tailwind CSS", "JavaScript"] },
+					{ name: "UI Design Digilib", desc: "UI Design Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto2.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Figma"] },
+					{ name: "Portfolio V1", desc: "Personal portfolio website V1", foto: "src/img/porto/porto1.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "CSS", "JavaScript"] },
 				],
 				experiences_work: [{ title: "CV. Access Media", type: "Internship", year: "2025-2026", logo: "src/img/work/acm.png", desc: "During my four-month internship program, I was directly involved in various projects. Through this experience, I developed my technical skills, enhanced my teamwork skills, and gained a deeper understanding of the professional environment and demands of the industry. Here are some of the activities I undertook during my internship.", tasks: ["Presenting a company profile", "Learning Tailwind CSS", "Learning Laravel", "Learn SQL queries", "Creating a personal profile website", "Creating a company profile website","Create a Taekwondo Club application guide website"] }],
 				experiences_org: [
@@ -211,14 +202,14 @@ document.addEventListener("alpine:init", () => {
 					{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
 				],
 				portfolios: [
-					{ name: "Laporin!", desc: "Membuat sistem pengaduan sarana sekolah", foto: "src/img/porto/porto8.webp" },
-					{ name: "Docs Club Taekwondo", desc: "Membuat website panduan aplikasi Club Taekwondo", foto: "src/img/porto/porto7.webp" },
-					{ name: "Portfolio V2", desc: "Website portofolio pribadi V2", foto: "src/img/porto/porto6.webp" },
-					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto5.webp" },
-					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.webp" },
-					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.webp" },
-					{ name: "Desain UI Digilib", desc: "Desain UI Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto2.webp" },
-					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto1.webp" },
+					{ name: "Laporin!", desc: "Membuat sistem pengaduan sarana sekolah", foto: "src/img/porto/porto8.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Laravel", "Tailwind CSS", "MySQL", "Alpine.js"] },
+					{ name: "Docs Club Taekwondo", desc: "Membuat website panduan aplikasi Club Taekwondo", foto: "src/img/porto/porto7.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "Tailwind CSS", "JavaScript"] },
+					{ name: "Portfolio V2", desc: "Website portofolio pribadi V2", foto: "src/img/porto/porto6.webp", github: "https://github.com/jstzaa/zaa-v2", demo: "https://zaa-dev.vercel.app", tech: ["HTML", "Tailwind CSS", "Alpine.js", "JavaScript"] },
+					{ name: "Profil Perusahaan CV. Access Media", desc: "Membuat website profil perusahaan", foto: "src/img/porto/porto5.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Laravel", "Tailwind CSS", "MySQL"] },
+					{ name: "Landing Page RPL", desc: "Landing page website RPL SMK Al-Khoeriyah", foto: "src/img/porto/porto4.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "CSS", "JavaScript"] },
+					{ name: "Landing Page PPDB", desc: "Landing page website PPDB SMK Al-Khoeriyah", foto: "src/img/porto/porto3.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "Tailwind CSS", "JavaScript"] },
+					{ name: "Desain UI Digilib", desc: "Desain UI Digital Library SMK Al-Khoeriyah", foto: "src/img/porto/porto2.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["Figma"] },
+					{ name: "Portfolio V1", desc: "Website portofolio pribadi V1", foto: "src/img/porto/porto1.webp", github: "https://github.com/jstzaa", demo: "https://github.com/jstzaa", tech: ["HTML", "CSS", "JavaScript"] },
 				],
 				experiences_work: [{ title: "CV. Access Media", type: "Praktik Kerja Lapangan", year: "2025-2026", logo: "src/img/work/acm.png", desc: "Selama mengikuti program Praktik Kerja Lapangan dalam waktu 4 bulan, saya terlibat langsung dalam berbagai proyek. Melalui pengalaman ini, saya mampu mengembangkan keterampilan teknis, meningkatkan kemampuan kerja sama tim, serta memperoleh pemahaman yang lebih mendalam mengenai lingkungan dan tuntutan profesional di dunia industri. Berikut beberapa kegiatan yang saya lakukan selama Praktik Kerja Lapangan.", tasks: ["Mempresentasikan profil perusahaan", "Mempelajari Tailwind CSS", "Mempelajari Laravel", "Mempelajari kueri SQL", "Membuat website profil pribadi", "Membuat website profil perusahaan", "Membuat website panduan aplikasi Club Taekwondo"] }],
 				experiences_org: [

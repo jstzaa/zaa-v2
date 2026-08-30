@@ -2,13 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
 @import "tailwindcss";
 
+:root {
+	--primary: #F6F6F6;
+	--secondary: #000000;
+	--dark: #000000;
+	--hv-primary: #eeeeee;
+	--scrollbar-hover: #333333;
+}
+
+.dark {
+	--primary: #000000;
+	--secondary: #F6F6F6;
+	--dark: #000000;
+	--hv-primary: #161616;
+	--scrollbar-hover: #ffffff;
+}
+
 @theme inline {
 	--font-archivo: "Archivo", sans-serif;
 	--font-syne: "Syne", sans-serif;
-	--color-primary: #f7f7f7;
-	--color-secondary: #929aab;
-	--color-dark: #393e46;
-	--color-hvPrimary: #eeeeee;
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-dark: var(--dark);
+	--color-hvPrimary: var(--hv-primary);
+	--color-scrollbarHover: var(--scrollbar-hover);
 }
 
 @layer base {
@@ -27,7 +44,7 @@
 	}
 
 	.hamburger-line {
-		@apply w-5 h-0.5 bg-dark rounded-full block my-0.5;
+		@apply w-5 h-0.5 bg-secondary rounded-full block my-0.5;
 	}
 
 	[x-cloak] {
@@ -62,6 +79,6 @@
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		background-color: var(--color-dark);
+		background-color: var(--color-scrollbarHover);
 	}
 }
