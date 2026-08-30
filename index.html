@@ -176,7 +176,7 @@
 		<section id="project" x-data="{ showProjectModal: false, selectedProject: null }" @keydown.escape.window="showProjectModal = false">
 			<div class="bg-hvPrimary transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('projects_title')"></h1>
+					<h1 class="text-3xl md:text-4xl font-bold" x-text="$store.lang.t('projects_title')"></h1>
 					<!-- Stacked Scroll Projects -->
 					<div class="flex flex-col gap-12 w-full max-w-4xl mt-10">
 						<template x-for="(portfolio, index) in $store.lang.activeData.portfolios" :key="portfolio.name">
@@ -186,29 +186,31 @@
 								@keydown.space.prevent="selectedProject = portfolio; showProjectModal = true"
 								role="button"
 								tabindex="0"
-								class="sticky w-full min-h-[350px] md:h-[400px] rounded-[2rem] bg-primary dark:bg-hvPrimary border border-secondary/20 dark:shadow-black/40 overflow-hidden cursor-pointer group flex flex-col md:flex-row transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/70"
+								class="sticky w-full h-[420px] md:h-[400px] rounded-[2rem] bg-primary dark:bg-hvPrimary border border-secondary/20 dark:shadow-black/40 overflow-hidden cursor-pointer group flex flex-col md:flex-row transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/70"
 								:style="'top: ' + (112 + index * 12) + 'px; z-index: ' + (10 + index)"
 							>
 								<!-- Left Column: Details -->
-								<div class="flex-1 p-8 md:p-10 flex flex-col justify-between">
+								<div class="flex-1 p-6 md:p-10 flex flex-col justify-between overflow-hidden">
 									<div>
-										<div class="flex justify-between items-center mb-4">
+										<div class="flex justify-between items-center mb-3">
 											<span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400" x-text="'0' + (index + 1) + ' / PROJECT'"></span>
 											<span class="inline-flex items-center gap-1.5 rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary">
 												<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
 												<span x-text="$store.lang.current === 'id' ? 'Detail' : 'View'"></span>
 											</span>
 										</div>
-										<h1 class="text-2xl md:text-3xl font-bold font-syne text-secondary" x-text="portfolio.name"></h1>
-										<p class="text-sm md:text-base text-neutral-600 dark:text-gray-300 mt-4 leading-relaxed" x-text="portfolio.desc"></p>
+										<h1 class="text-xl md:text-3xl font-bold font-syne text-secondary truncate" x-text="portfolio.name"></h1>
+										<!-- Tambahkan line-clamp untuk membatasi jumlah baris teks di mobile -->
+										<p class="text-xs md:text-base text-neutral-600 dark:text-gray-300 mt-3 line-clamp-2 md:line-clamp-none leading-relaxed" x-text="portfolio.desc"></p>
 									</div>
-									<div class="mt-6 flex items-center text-sm font-semibold text-secondary gap-2">
+									<div class="mt-4 flex items-center text-sm font-semibold text-secondary gap-2">
 										<span x-text="$store.lang.current === 'id' ? 'Lihat Detail Proyek' : 'View Project Details'"></span>
 										<i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1.5"></i>
 									</div>
 								</div>
+								
 								<!-- Right Column: Image -->
-								<div class="w-full md:w-[45%] h-64 md:h-full relative overflow-hidden">
+								<div class="w-full md:w-[45%] h-40 md:h-full relative overflow-hidden flex-shrink-0">
 									<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="portfolio.foto" :alt="portfolio.name" />
 									<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:hidden"></div>
 								</div>
