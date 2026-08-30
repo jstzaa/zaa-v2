@@ -57,7 +57,7 @@
 						<div class="w-56 h-56 rounded-full border-8 border-secondary shadow-lg shadow-dark/50" data-aos="fade-down" data-aos-delay="50">
 							<img src="src/img/profile.webp" alt="Profile Picture" class="rounded-full object-cover w-full h-full" />
 						</div>
-						<h1 class="text-center font-bold text-3xl md:text-4xl mt-5" data-aos="fade-down" data-aos-delay="150"><span x-text="$store.lang.t('hero_hi')"></span><br /><span x-text="$store.lang.t('hero_intro')"></span></h1>
+						<h1 class="text-center font-medium font-instrument-serif italic text-3xl md:text-4xl mt-5" data-aos="fade-down" data-aos-delay="150"><span x-text="$store.lang.t('hero_hi')"></span><br /><span x-text="$store.lang.t('hero_intro')"></span></h1>
 						<div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
 							<span id="element" class="text-2xl md:text-3xl" translate="no"></span>
 						</div>
@@ -84,7 +84,7 @@
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full items-start">
 						<div class="order-2 lg:order-1 flex flex-col gap-3 items-center lg:items-start">
-							<h1 class="text-3xl md:text-4xl font-bold" x-text="$store.lang.t('about_title')" data-aos="fade-up" data-aos-delay="100"></h1>
+							<h1 class="text-3xl md:text-5xl font-medium font-instrument-serif italic" x-text="$store.lang.t('about_title')" data-aos="fade-up" data-aos-delay="100"></h1>
 							<p class="text-base md:text-lg text-center lg:text-left" x-text="$store.lang.t('about_desc')" data-aos="fade-up" data-aos-delay="200"></p>
 						</div>
 
@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div class="flex flex-col justify-center items-center gap-4">
-						<h1 class="text-2xl md:text-3xl font-bold" x-text="$store.lang.t('edu_title')" data-aos="fade-up" data-aos-delay="300"></h1>
+						<h1 class="text-2xl md:text-3xl font-medium font-instrument-serif italic" x-text="$store.lang.t('edu_title')" data-aos="fade-up" data-aos-delay="300"></h1>
 						<div x-data class="grid grid-cols-1 md:grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="400">
 							<template x-for="education in $store.lang.activeData.educations" :key="education.name">
 								<div class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer">
@@ -133,7 +133,7 @@
 		<section id="skills">
 			<div class="bg-grid dark:[--color-primary:var(--color-dark)] transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5" x-data="{ activeTab: 'tab1' }">
-					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('skills_title')"></h1>
+					<h1 class="text-3xl md:text-5xl font-medium font-instrument-serif italic" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('skills_title')"></h1>
 					<div class="relative grid grid-cols-2 backdrop-blur-xs bg-hvPrimary/50 dark:bg-neutral-800/50 shadow-xl border border-primary/70 dark:border-secondary/20 text-sm p-1 rounded-2xl w-[270px]" data-aos="fade-up" data-aos-delay="300">
 						<div class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out" :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"></div>
 
@@ -170,7 +170,7 @@
 		<section id="project" x-data="{ showProjectModal: false, selectedProject: null }" @keydown.escape.window="showProjectModal = false">
 			<div class="bg-hvPrimary transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-					<h1 class="text-3xl md:text-4xl font-bold" x-text="$store.lang.t('projects_title')"></h1>
+					<h1 class="text-3xl md:text-5xl font-medium font-instrument-serif italic" x-text="$store.lang.t('projects_title')"></h1>
 					<!-- Stacked Scroll Projects -->
 					<div class="flex flex-col gap-12 w-full max-w-4xl mt-10">
 						<template x-for="(portfolio, index) in $store.lang.activeData.portfolios" :key="portfolio.name">
@@ -212,7 +212,7 @@
 												<span x-text="$store.lang.current === 'id' ? 'Detail' : 'View'"></span>
 											</span>
 										</div>
-										<h1 class="text-xl md:text-3xl font-bold font-syne text-secondary truncate" x-text="portfolio.name"></h1>
+										<h1 class="text-xl md:text-3xl font-medium font-instrument-serif italic text-secondary truncate" x-text="portfolio.name"></h1>
 										<p class="text-xs md:text-base text-neutral-600 dark:text-gray-300 mt-3 line-clamp-2 md:line-clamp-none leading-relaxed" x-text="portfolio.desc"></p>
 									</div>
 									<div class="mt-4 flex items-center text-sm font-semibold text-secondary gap-2">
@@ -321,7 +321,7 @@
 		<section id="experience">
 			<div class="bg-primary dark:bg-dark transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5" x-data="{ activeTab: 'tab1', showModal: false, selectedExp: null }">
-					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('exp_title')"></h1>
+					<h1 class="text-3xl md:text-5xl font-medium font-instrument-serif italic" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('exp_title')"></h1>
 					<div class="relative grid grid-cols-3 bg-hvPrimary/50 dark:bg-neutral-800/50 shadow-xl border border-primary/70 dark:border-secondary/20 text-sm p-1 rounded-2xl w-full max-w-[420px]" data-aos="fade-up" data-aos-delay="300">
 						<div class="absolute top-1 bottom-1 left-1 w-[calc(33.333%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out" :class="activeTab === 'tab1' ? 'translate-x-0' : activeTab === 'tab2' ? 'translate-x-full' : 'translate-x-[203%]'"></div>
 
@@ -464,7 +464,7 @@
 		<section id="contact">
 			<div class="transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5">
-					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('contact_title')"></h1>
+					<h1 class="text-3xl md:text-5xl font-medium font-instrument-serif italic" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('contact_title')"></h1>
 					<div class="flex flex-row gap-2 text-5xl" data-aos="fade-up" data-aos-delay="300">
 						<a href="https://www.instagram.com/jstzaa28" target="_blank"><i class="fa-brands fa-instagram hover:scale-105 transition-all duration-200"></i></a>
 						<a href="https://github.com/jstzaa" target="_blank"><i class="fa-brands fa-github hover:scale-105 transition-all duration-200"></i></a>

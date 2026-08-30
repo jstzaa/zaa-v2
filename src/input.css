@@ -1,5 +1,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -21,6 +22,8 @@
 @theme inline {
 	--font-archivo: "Archivo", sans-serif;
 	--font-syne: "Syne", sans-serif;
+	--font-instrument-sans: "Instrument Sans", sans-serif;
+	--font-instrument-serif: "Instrument Serif", serif;
 	--color-primary: var(--primary);
 	--color-secondary: var(--secondary);
 	--color-dark: var(--dark);
@@ -30,7 +33,7 @@
 
 @layer base {
 	body {
-		@apply font-archivo;
+		@apply font-instrument-sans;
 	}
 
 	.bg-home {
