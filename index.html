@@ -140,7 +140,7 @@
 			<div class="bg-grid dark:[--color-primary:var(--color-dark)] transition-colors duration-500">
 				<div class="py-20 px-10 lg:px-20 flex flex-col items-center gap-5" x-data="{ activeTab: 'tab1' }">
 					<h1 class="text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="300" x-text="$store.lang.t('skills_title')"></h1>
-					<div class="relative grid grid-cols-2 backdrop-blur-3xl bg-hvPrimary/50 dark:bg-neutral-800/50 shadow-xl border border-primary/70 dark:border-secondary/20 text-sm p-1 rounded-2xl w-[270px]" data-aos="fade-up" data-aos-delay="300">
+					<div class="relative grid grid-cols-2 backdrop-blur-xs bg-hvPrimary/50 dark:bg-neutral-800/50 shadow-xl border border-primary/70 dark:border-secondary/20 text-sm p-1 rounded-2xl w-[270px]" data-aos="fade-up" data-aos-delay="300">
 						<div class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-secondary/50 rounded-xl transition-transform duration-300 ease-out" :class="activeTab === 'tab1' ? 'translate-x-0' : 'translate-x-full'"></div>
 
 						<button @click="activeTab = 'tab1'" class="relative z-10 h-10 rounded-xl font-medium transition-colors duration-300 cursor-pointer" :class="activeTab === 'tab1' ? 'text-secondary font-bold' : 'text-neutral-500'" type="button" x-text="$store.lang.t('skills_tab1')"></button>
