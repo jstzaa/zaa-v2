@@ -67,10 +67,10 @@
 								<a href="https://github.com/jstzaa" target="_blank"><i class="fa-brands fa-github hover:scale-105 transition-all duration-300"></i></a>
 								<a href="https://www.linkedin.com/in/fahriza-kurniawan/" target="_blank"><i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-300"></i></a>
 							</div>
-							<button class="flex items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border-2 border-secondary cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300">
+							<a href="https://drive.google.com/uc?export=download&id=1CNqRP9dZV_8r5jQzaA76OofYfgeyv8dv" class="flex items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border-2 border-secondary cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300">
 								<i class="fa-solid fa-arrow-down text-sm"></i>
 								<p class="text-base font-semibold">Download CV</p>
-							</button>
+							</a>
 						</div>
 						<div class="h-24 border border-secondary/20 my-20 rounded-full"></div>
 					</div>
@@ -104,7 +104,7 @@
 								<span class="text-[#f1fa8c] dark:text-[#e36209]">{</span><br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"name"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Fahriza Kurniawan"</span>,<br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"role"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Student & Web Developer"</span>,<br />
-								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"school"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"SMK Al-Khoeriyah"</span>,<br />
+								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"uni"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Siliwangi University"</span>,<br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"location"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff]">"Tasikmalaya, ID"</span>,<br />
 								&nbsp;&nbsp;<span class="text-[#8be9fd] dark:text-[#79c0ff]">"github"</span>: <span class="text-[#50fa7b] dark:text-[#a5d6ff] hover:text-secondary hover:underline">"<a href='https://github.com/jstzaa' target='_blank'>https://github.com/jstzaa</a>"</span>,<br />
 								<span class="text-[#f1fa8c] dark:text-[#e36209]">}</span>
@@ -174,14 +174,33 @@
 					<!-- Stacked Scroll Projects -->
 					<div class="flex flex-col gap-12 w-full max-w-4xl mt-10">
 						<template x-for="(portfolio, index) in $store.lang.activeData.portfolios" :key="portfolio.name">
-							<div 
+							<div
+								x-data="{ scale: 1 }"
+								x-init="
+									const stickyTop = 112 + index * 12;
+									const range = 300;      // jarak (px) sebelum titik sticky, di mana animasi mulai jalan
+									const maxScale = 1.02;  // scale maksimum saat card sudah full nempel
+
+									const onScroll = () => {
+										const rect = $el.getBoundingClientRect();
+										// progress = 0 saat rect.top masih jauh di bawah (belum masuk 'range')
+										// progress = 1 saat rect.top sudah mencapai stickyTop (full nempel)
+										const distance = rect.top - stickyTop;
+										const progress = 1 - Math.min(Math.max(distance / range, 0), 1);
+										scale = 1 + (maxScale - 1) * progress;
+									};
+
+									window.addEventListener('scroll', onScroll, { passive: true });
+									window.addEventListener('resize', onScroll, { passive: true });
+									onScroll();
+								"
 								@click="selectedProject = portfolio; showProjectModal = true"
 								@keydown.enter.prevent="selectedProject = portfolio; showProjectModal = true"
 								@keydown.space.prevent="selectedProject = portfolio; showProjectModal = true"
 								role="button"
 								tabindex="0"
-								class="sticky w-full h-[420px] md:h-[400px] rounded-[2rem] bg-primary dark:bg-hvPrimary border border-secondary/20 dark:shadow-black/40 overflow-hidden cursor-pointer group flex flex-col md:flex-row transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/70"
-								:style="'top: ' + (112 + index * 12) + 'px; z-index: ' + (10 + index)"
+								class="sticky w-full h-[420px] md:h-[400px] rounded-[2rem] bg-primary dark:bg-hvPrimary border border-secondary/20 dark:shadow-black/40 overflow-hidden cursor-pointer group flex flex-col md:flex-row transition-transform duration-100 ease-out will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/70"
+								:style="'top: ' + (112 + index * 12) + 'px; z-index: ' + (10 + index) + '; transform: scale(' + scale + ');'"
 							>
 								<!-- Left Column: Details -->
 								<div class="flex-1 p-6 md:p-10 flex flex-col justify-between overflow-hidden">
@@ -194,7 +213,6 @@
 											</span>
 										</div>
 										<h1 class="text-xl md:text-3xl font-bold font-syne text-secondary truncate" x-text="portfolio.name"></h1>
-										<!-- Tambahkan line-clamp untuk membatasi jumlah baris teks di mobile -->
 										<p class="text-xs md:text-base text-neutral-600 dark:text-gray-300 mt-3 line-clamp-2 md:line-clamp-none leading-relaxed" x-text="portfolio.desc"></p>
 									</div>
 									<div class="mt-4 flex items-center text-sm font-semibold text-secondary gap-2">
@@ -202,7 +220,7 @@
 										<i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1.5"></i>
 									</div>
 								</div>
-								
+
 								<!-- Right Column: Image -->
 								<div class="w-full md:w-[45%] h-40 md:h-full relative overflow-hidden flex-shrink-0">
 									<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="portfolio.foto" :alt="portfolio.name" />

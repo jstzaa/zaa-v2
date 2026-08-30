@@ -128,6 +128,7 @@ document.addEventListener("alpine:init", () => {
 		data: {
 			en: {
 				educations: [
+					{ name: "Siliwangi University", logo: "src/img/edu/unsil.webp", year: "2026 - Now" },
 					{ name: "SMK Al-Khoeriyah", logo: "src/img/edu/smkak.webp", year: "2023 - 2026" },
 					{ name: "MTsN 1 Kota Tasikmalaya", logo: "src/img/edu/mtsn1.webp", year: "2020 - 2023" },
 					{ name: "SDN 1 Karangsambung", logo: "src/img/edu/sdn.webp", year: "2014 - 2020" },
@@ -171,6 +172,7 @@ document.addEventListener("alpine:init", () => {
 			},
 			id: {
 				educations: [
+					{ name: "Universitas Siliwangi", logo: "src/img/edu/unsil.webp", year: "2026 - Sekarang" },
 					{ name: "SMK Al-Khoeriyah", logo: "src/img/edu/smkak.webp", year: "2023 - 2026" },
 					{ name: "MTsN 1 Kota Tasikmalaya", logo: "src/img/edu/mtsn1.webp", year: "2020 - 2023" },
 					{ name: "SDN 1 Karangsambung", logo: "src/img/edu/sdn.webp", year: "2014 - 2020" },
