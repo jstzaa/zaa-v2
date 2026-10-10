@@ -59,7 +59,7 @@
 
 						<!-- Navbar Inline: Dark Mode Toggle -->
 						<button id="dark-toggle" class="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-							<span id="toggle-icon" class="material-symbols-outlined transition-transform duration-500 text-xl">brightness_3</span>
+							<span id="toggle-icon" class="material-symbols-outlined transition-transform duration-500 text-xs">brightness_3</span>
 						</button>
 					</li>
 				</ul>
@@ -161,7 +161,7 @@
 			<div class="bg-home relative w-full min-h-screen overflow-hidden dark:[--color-primary:var(--color-dark)] transition-colors duration-500"> 
 				<!-- Video Background (Diposisikan di paling atas agar mudah di-styling absolute) -->
 				<video autoplay muted loop playsinline class="video-bg opacity-0 dark:opacity-100 transition-opacity">
-					<source src="src/vid/bg-hero.webm" type="video/webm">
+					<source src="src/vid/bg-hero-dark.webm" type="video/webm">
 				</video>
 				<video autoplay muted loop playsinline class="video-bg opacity-100 dark:opacity-0 transition-opacity">
 					<source src="src/vid/bg-hero-light.webm" type="video/webm">
@@ -206,8 +206,7 @@
 						x-ref="container"
 						:style="containerStyles"
 						href="https://drive.google.com/uc?export=download&id=1wluovSh9J_fcF8Sa35e0HbDC8XVaGgzO" class="flex items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border border-white/20 cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300">
-							<i class="fa-solid fa-arrow-down text-sm"></i>
-							<p class="text-base font-semibold">Download CV</p>
+							Download CV
 						</a>
 					</div>
 				</div>
