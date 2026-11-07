@@ -1,0 +1,109 @@
+@custom-variant dark (&:where(.dark, .dark *));
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap");
+@import "tailwindcss";
+
+:root {
+	--primary: #f6f6f6;
+	--secondary: #000000;
+	--dark: #000000;
+	--hv-primary: #eeeeee;
+	--scrollbar-hover: #333333;
+}
+
+.dark {
+	--primary: #000000;
+	--secondary: #f6f6f6;
+	--dark: #000000;
+	--hv-primary: #161616;
+	--scrollbar-hover: #ffffff;
+}
+
+@theme inline {
+	--font-archivo: "Archivo", sans-serif;
+	--font-syne: "Syne", sans-serif;
+	--font-instrument-sans: "Instrument Sans", sans-serif;
+	--font-instrument-serif: "Instrument Serif", serif;
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-dark: var(--dark);
+	--color-hvPrimary: var(--hv-primary);
+	--color-scrollbarHover: var(--scrollbar-hover);
+}
+
+@layer base {
+	body {
+		@apply font-instrument-sans;
+	}
+
+	.bg-home {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+		background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(1, 140, 255, 0.18), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 200, 255, 0.15), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(1, 75, 207, 0.22), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(100, 210, 255, 0.1), transparent 40%), var(--color-primary);
+	}
+
+	.video-bg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
+
+	.bg-home::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(1, 140, 255, 0.18), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 200, 255, 0.15), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(1, 75, 207, 0.22), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(100, 210, 255, 0.1), transparent 40%);
+		z-index: 2;
+		pointer-events: none;
+	}
+
+	.bg-grid {
+		background: var(--color-primary);
+		background-image: linear-gradient(to right, rgba(71, 140, 205, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(71, 140, 205, 0.15) 1px, transparent 1px), radial-gradient(circle at 50% 60%, rgba(1, 140, 255, 0.18) 0%, rgba(1, 75, 207, 0.08) 40%, transparent 70%);
+		background-size:
+			40px 40px,
+			40px 40px,
+			100% 100%;
+	}
+
+	.bg-footer {
+		background: radial-gradient(125% 125% at 50% 10%, var(--color-primary) 40%, #6366f1 100%);
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--color-secondary);
+		border-radius: 20px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background-color: var(--color-scrollbarHover);
+	}
+}
