@@ -52,12 +52,16 @@
 					<h1 class="text-2xl md:text-3xl font-medium font-instrument-serif italic" data-aos="fade-up" data-aos-delay="300">
 						{{ t('edu_title') }}
 					</h1>
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="400">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-7" data-aos="fade-up" data-aos-delay="400">
 						<div
 							v-for="education in activeData.educations"
 							:key="education.name"
-							class="flex flex-row gap-4 bg-primary dark:bg-dark rounded-2xl py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+							class="group relative flex flex-row gap-4 bg-primary dark:bg-dark border border-black dark:border-white py-3 px-6 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
 						>
+							<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+							<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+							<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+							<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
 							<img :src="resolveAsset(education.logo)" :alt="education.name" class="h-10 object-contain" />
 							<div class="flex flex-col">
 								<h1 class="text-lg font-bold lg:text-md">{{ education.name }}</h1>

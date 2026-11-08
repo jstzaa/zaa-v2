@@ -6,27 +6,23 @@
 		@click="showSettings = false"
 	></div>
 
-	<!-- Settings Popup using LiquidGlass -->
+	<!-- Settings Popup using GlassSurface -->
 	<Transition name="popover">
-		<LiquidGlass
+		<GlassSurface
 			v-if="showSettings"
 			as="div"
 			id="mobile-settings-popup"
-			:border-radius="20"
-			:border-width="0.05"
-			:brightness="75"
-			:opacity="0.95"
-			:blur="100"
-			:displace="0.4"
-			:background-opacity="0.3"
-			:saturation="1.2"
-			:distortion-scale="0.4"
+			:displace="0.5"
+			:distortion-scale="-100"
 			:red-offset="0"
 			:green-offset="10"
-			:blue-offset="5"
-			x-channel="R"
-			y-channel="G"
-			mix-blend-mode="difference"
+			:blue-offset="20"
+			:brightness="50"
+			:opacity="0.93"
+			:width="200"
+			:height="160"
+			:border-radius="30"
+			mix-blend-mode="screen"
 			class="lg:hidden fixed bottom-[80px] right-7 sm:right-3 z-50 p-2.5 bg-hvPrimary/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl shadow-2xl border border-secondary/15 dark:border-white/15 flex flex-col gap-1.5 w-[230px]"
 		>
 			<div class="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-secondary/10 dark:border-white/10 flex items-center justify-between">
@@ -69,29 +65,25 @@
 					<span>{{ currentLang === 'id' ? 'Bahasa' : 'Language' }}</span>
 				</div>
 			</button>
-		</LiquidGlass>
+		</GlassSurface>
 	</Transition>
 
 	<!-- Mobile Bottom Dockbar -->
-	<LiquidGlass
+	<GlassSurface
 		as="nav"
 		id="mobile-dock"
-		:border-radius="24"
-		:border-width="0.05"
-		:brightness="75"
-		:opacity="0.95"
-		:blur="100"
-		:displace="0.4"
-		:background-opacity="0.25"
-		:saturation="1.2"
-		:distortion-scale="0.4"
+		:displace="0.5"
+		:distortion-scale="-100"
 		:red-offset="0"
 		:green-offset="10"
-		:blue-offset="5"
-		x-channel="R"
-		y-channel="G"
-		mix-blend-mode="difference"
-		class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-0.5 sm:gap-1 px-2 py-1.5 max-w-[calc(100vw-1rem)] bg-hvPrimary/90 dark:bg-neutral-900/90 backdrop-blur-md rounded-2xl shadow-xl shadow-dark/20 border border-secondary/10 transition-all duration-300 overflow-x-auto scrollbar-hide"
+		:blue-offset="20"
+		:brightness="50"
+		:opacity="0.93"
+		:width="320"
+		:height="60"
+		:border-radius="30"
+		mix-blend-mode="screen"
+		class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-center gap-0.5 sm:gap-1 px-2 py-1.5 max-w-[calc(100vw-1rem)] bg-hvPrimary/90 dark:bg-neutral-900/90 backdrop-blur-md rounded-2xl shadow-xl shadow-dark/20 border border-secondary/10 transition-all duration-300 overflow-x-auto scrollbar-hide"
 	>
 		<!-- Home -->
 		<a
@@ -100,7 +92,7 @@
 			:aria-label="t('nav_home')"
 			:aria-current="activeSection === 'home' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'home' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'home' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">home</span>
 		</a>
@@ -112,7 +104,7 @@
 			:aria-label="t('nav_about')"
 			:aria-current="activeSection === 'about' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'about' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'about' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">person</span>
 		</a>
@@ -124,7 +116,7 @@
 			:aria-label="t('nav_skills')"
 			:aria-current="activeSection === 'skills' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'skills' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'skills' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">code</span>
 		</a>
@@ -136,7 +128,7 @@
 			:aria-label="t('nav_project')"
 			:aria-current="activeSection === 'project' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'project' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'project' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">folder_open</span>
 		</a>
@@ -148,7 +140,7 @@
 			:aria-label="t('nav_experience')"
 			:aria-current="activeSection === 'experience' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'experience' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'experience' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">work</span>
 		</a>
@@ -160,7 +152,7 @@
 			:aria-label="t('nav_contact')"
 			:aria-current="activeSection === 'contact' ? 'page' : undefined"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="activeSection === 'contact' ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="activeSection === 'contact' ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span class="material-symbols-outlined" style="font-size: 22px">mail</span>
 		</a>
@@ -177,7 +169,7 @@
 			:aria-expanded="showSettings"
 			aria-haspopup="true"
 			class="min-w-[40px] h-11 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer"
-			:class="showSettings ? 'bg-secondary/15 text-secondary dark:bg-white/15 dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'"
+			:class="showSettings ? 'scale-105 text-secondary dark:text-white font-semibold' : 'text-neutral-500 hover:text-secondary dark:text-neutral-400 dark:hover:text-white'"
 		>
 			<span
 				class="material-symbols-outlined transition-transform duration-300"
@@ -187,12 +179,12 @@
 				settings
 			</span>
 		</button>
-	</LiquidGlass>
+	</GlassSurface>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import LiquidGlass from "./LiquidGlass.vue";
+import GlassSurface from "./GlassSurface.vue";
 import { useLanguage } from "../composables/useLanguage";
 import { useTheme } from "../composables/useTheme";
 

@@ -1,6 +1,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -34,37 +35,6 @@
 @layer base {
 	body {
 		@apply font-instrument-sans;
-	}
-
-	.bg-home {
-		position: relative;
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-		background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(1, 140, 255, 0.18), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 200, 255, 0.15), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(1, 75, 207, 0.22), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(100, 210, 255, 0.1), transparent 40%), var(--color-primary);
-	}
-
-	.video-bg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		min-width: 100%;
-		min-height: 100%;
-		object-fit: cover;
-		z-index: 0;
-	}
-
-	.bg-home::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(1, 140, 255, 0.18), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 200, 255, 0.15), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(1, 75, 207, 0.22), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(100, 210, 255, 0.1), transparent 40%);
-		z-index: 2;
-		pointer-events: none;
 	}
 
 	.bg-grid {

@@ -20,9 +20,20 @@
 			</div>
 
 			<footer class="flex justify-center w-full px-20 leading-none overflow-hidden">
-				<p class="z-20 text-[4rem] md:text-[8rem] lg:text-[12rem] text-nowrap font-bold font-syne tracking-tighter select-none pointer-events-none translate-y-[20%] text-black dark:text-white">
-					z<em>aa</em>-<em>d</em>ev
-				</p>
+				<Shuffle
+					text="zaa-dev"
+					shuffle-direction="right"
+					:duration="0.35"
+					animation-mode="evenodd"
+					:shuffle-times="1"
+					ease="power3.out"
+					:stagger="0.03"
+					:threshold="0.1"
+					:trigger-once="true"
+					:trigger-on-hover="true"
+					:respect-reduced-motion="true"
+					class="text-[4rem] md:text-[8rem] lg:text-[12rem] translate-y-[20%]"
+				/>
 			</footer>
 		</div>
 	</section>
@@ -30,6 +41,7 @@
 
 <script setup>
 import { useLanguage } from "../composables/useLanguage";
+import Shuffle from './Shuffle.vue'
 
 const { t } = useLanguage();
 </script>

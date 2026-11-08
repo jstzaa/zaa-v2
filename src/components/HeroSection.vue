@@ -1,13 +1,29 @@
 <template>
 	<section id="home">
-		<div class="bg-home relative w-full min-h-screen overflow-hidden dark:[--color-primary:var(--color-dark)] transition-colors duration-500">
-			<!-- Video Background -->
-			<video autoplay muted loop playsinline class="video-bg opacity-0 dark:opacity-100 transition-opacity">
-				<source :src="resolveAsset('src/vid/bg-hero-dark.webm')" type="video/webm" />
-			</video>
-			<video autoplay muted loop playsinline class="video-bg opacity-100 dark:opacity-0 transition-opacity">
-				<source :src="resolveAsset('src/vid/bg-hero-light.webm')" type="video/webm" />
-			</video>
+		<div class="relative w-full min-h-screen overflow-hidden dark:[--color-primary:var(--color-dark)] transition-colors duration-500">
+			<div class="absolute inset-0 z-0">
+				<CRTWarp
+					color="#3B82F6"
+					:backgroundColor="isDark ? '#000000' : '#f6f6f6'"
+					:speed="0.2"
+					:curvature="0.25"
+					:scanlineStrength="0.25"
+					:scanlineFrequency="200"
+					:waveAmplitude="0.3"
+					:waveFrequency="2.5"
+					:bloom="1.5"
+					:bloomRadius="1"
+					:noise="0.1"
+					:vignette="0"
+					:brightness="1.25"
+					:pixelation="1"
+					:rgbShift="0.015"
+					mouseReact
+					:mouseStrength="0.5"
+					:dpr="1"
+					:fps="30"
+				/>
+			</div>
 
 			<!-- Konten Website -->
 			<div class="relative z-10 flex flex-col items-center pt-32 px-4">
@@ -33,28 +49,24 @@
 							<i class="fa-brands fa-linkedin hover:scale-105 transition-all duration-300"></i>
 						</a>
 					</div>
-					<LiquidGlass
+					<GlassSurface
 						as="a"
-						:border-radius="24"
-						:border-width="0.05"
-						:brightness="75"
-						:opacity="0.95"
-						:blur="100"
-						:displace="0.4"
-						:background-opacity="0.25"
-						:saturation="1.2"
-						:distortion-scale="0.4"
+						:displace="0.5"
+						:distortion-scale="-100"
 						:red-offset="0"
 						:green-offset="10"
-						:blue-offset="5"
-						x-channel="R"
-						y-channel="G"
-						mix-blend-mode="difference"
+						:blue-offset="20"
+						:brightness="50"
+						:opacity="0.93"
+						:width="200"
+						:height="50"
+						:border-radius="30"
+						mix-blend-mode="screen"
 						href="https://drive.google.com/uc?export=download&id=1wluovSh9J_fcF8Sa35e0HbDC8XVaGgzO"
-						class="flex items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border border-white/20 cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300"
+						class="flex justify-center items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border border-white/20 cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300"
 					>
 						Download CV
-					</LiquidGlass>
+					</GlassSurface>
 				</div>
 			</div>
 		</div>
@@ -64,11 +76,14 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import Typed from "typed.js";
-import LiquidGlass from "./LiquidGlass.vue";
+import GlassSurface from "./GlassSurface.vue";
+import CRTWarp from "./CRTWarp.vue";
 import { useLanguage } from "../composables/useLanguage";
+import { useTheme } from "../composables/useTheme";
 import { resolveAsset } from "../utils/assets";
 
 const { t } = useLanguage();
+const { isDark } = useTheme();
 const typedEl = ref(null);
 let typedInstance = null;
 

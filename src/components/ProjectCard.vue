@@ -28,7 +28,7 @@
 			<div>
 				<div class="flex justify-between items-center mb-3">
 					<span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-						{{ `0${index + 1} / PROJECT` }}
+						PROJECT
 					</span>
 				</div>
 				<h2 class="text-xl md:text-3xl font-medium font-instrument-serif italic text-secondary truncate">

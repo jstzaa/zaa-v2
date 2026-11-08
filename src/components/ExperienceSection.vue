@@ -64,8 +64,12 @@
 								v-for="(experience, index) in activeData.experiences_work"
 								:key="index"
 								@click="openModal(experience)"
-								class="group flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-hvPrimary rounded-2xl py-5 px-10 border border-hvPrimary/50 dark:border-secondary/20 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-secondary/50"
+								class="group relative flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-hvPrimary border border-black dark:border-white py-5 px-10 shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-secondary/50"
 							>
+								<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
 								<img
 									:src="resolveAsset(experience.logo)"
 									:alt="experience.title"
@@ -92,8 +96,12 @@
 							<div
 								v-for="(experience, index) in activeData.experiences_org"
 								:key="index"
-								class="flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-hvPrimary rounded-2xl py-5 px-10 border border-hvPrimary/50 shadow-xl shadow-secondary/20 dark:shadow-black/20 dark:border-secondary/20 items-center cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+								class="group relative flex flex-col md:w-2xl lg:w-4xl md:flex-row gap-3 md:gap-10 bg-primary dark:bg-hvPrimary py-5 px-10 border border-black dark:border-white shadow-xl shadow-secondary/20 dark:shadow-black/20 items-center cursor-pointer transition-all duration-300 hover:scale-[1.02]"
 							>
+								<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -top-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
+								<div class="lg:hidden lg:group-hover:flex absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black dark:bg-white border border-black dark:border-white"></div>
 								<img :src="resolveAsset(experience.logo)" :alt="experience.title" class="w-20 object-contain" />
 								<div class="flex flex-col">
 									<h2 class="text-2xl font-bold">{{ experience.title }}</h2>

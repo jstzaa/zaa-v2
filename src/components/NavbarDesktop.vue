@@ -3,23 +3,19 @@
 		class="fixed top-0 left-0 w-full z-50 flex justify-center pointer-events-none transition-opacity duration-300 ease-in"
 		:class="navMounted ? 'opacity-100' : 'opacity-0'"
 	>
-		<LiquidGlass
+		<GlassSurface
 			as="nav"
-			:border-radius="24"
-			:border-width="0.05"
-			:brightness="75"
-			:opacity="0.95"
-			:blur="100"
-			:displace="0.4"
-			:background-opacity="0.25"
-			:saturation="1.2"
-			:distortion-scale="0.4"
+			:displace="0.5"
+			:distortion-scale="-100"
 			:red-offset="0"
 			:green-offset="10"
-			:blue-offset="5"
-			x-channel="R"
-			y-channel="G"
-			mix-blend-mode="difference"
+			:blue-offset="20"
+			:brightness="50"
+			:opacity="0.93"
+			:width="700"
+			:height="60"
+			:border-radius="30"
+			mix-blend-mode="screen"
 			class="pointer-events-auto hidden lg:flex flex-row py-3 px-9 justify-center items-center mt-5 shadow-lg shadow-dark/20 transition-all duration-300 overflow-hidden isolate border border-white/20 whitespace-nowrap"
 		>
 			<ul class="relative z-20">
@@ -74,13 +70,13 @@
 					</button>
 				</li>
 			</ul>
-		</LiquidGlass>
+		</GlassSurface>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import LiquidGlass from "./LiquidGlass.vue";
+import GlassSurface from "./GlassSurface.vue";
 import { useLanguage } from "../composables/useLanguage";
 import { useTheme } from "../composables/useTheme";
 
