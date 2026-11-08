@@ -160,6 +160,8 @@ export const portfolioData = {
 				{ name: "VS Code", logo: "src/img/tools/vscode.svg" },
 				{ name: "Git", logo: "src/img/tools/git.svg" },
 				{ name: "GitHub", logo: "src/img/tools/github.svg" },
+				{ name: "Antigravity", logo: "src/img/tools/antigravity.svg" },
+				{ name: "Claude", logo: "src/img/tools/claude.svg" },
 				{ name: "Vercel", logo: "src/img/tools/vercel.svg" },
 				{ name: "Canva", logo: "src/img/tools/canva.svg" },
 				{ name: "Capcut", logo: "src/img/tools/capcut.svg" },
