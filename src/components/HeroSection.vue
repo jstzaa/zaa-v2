@@ -35,7 +35,7 @@
 					<span>{{ t('hero_intro') }}</span>
 				</h1>
 				<div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
-					<span ref="typedEl" class="text-2xl md:text-3xl" translate="no"></span>
+					<span ref="typedEl" class="text-2xl md:text-3xl font-geist-pixel" translate="no"></span>
 				</div>
 				<div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-5" data-aos="fade-down" data-aos-delay="250">
 					<div class="flex flex-row items-center gap-2 text-5xl">
@@ -63,7 +63,7 @@
 						:border-radius="30"
 						mix-blend-mode="screen"
 						href="https://drive.google.com/uc?export=download&id=1wluovSh9J_fcF8Sa35e0HbDC8XVaGgzO"
-						class="flex justify-center items-center gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border border-white/20 cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300"
+						class="flex justify-center items-center font-geist-pixel gap-2 px-10 py-2 bg-transparent rounded-full backdrop-blur-sm border border-white/20 cursor-pointer hover:bg-secondary hover:text-primary transition-all duration-300"
 					>
 						Download CV
 					</GlassSurface>
