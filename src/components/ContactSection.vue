@@ -23,7 +23,7 @@
 				<Shuffle
 					text="zaa-dev"
 					shuffle-direction="right"
-					:duration="0.35"
+					:duration="2"
 					animation-mode="evenodd"
 					:shuffle-times="1"
 					ease="power3.out"
