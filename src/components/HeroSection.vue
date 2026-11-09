@@ -27,17 +27,17 @@
 
 			<!-- Konten Website -->
 			<div class="relative z-10 flex flex-col items-center pt-32 px-4">
-				<div class="w-56 h-56 rounded-full border-8 border-secondary shadow-lg shadow-dark/50" data-aos="fade-down" data-aos-delay="50">
+				<div class="w-56 h-56 rounded-full border-8 border-secondary shadow-lg shadow-dark/50">
 					<img :src="resolveAsset('src/img/profile.webp')" alt="Profile Picture" class="rounded-full object-cover w-full h-full" />
 				</div>
-				<h1 class="text-center font-medium font-instrument-serif italic text-3xl md:text-4xl mt-5" data-aos="fade-down" data-aos-delay="150">
+				<h1 class="text-center font-medium font-instrument-serif italic text-3xl md:text-4xl mt-5">
 					<span>{{ t('hero_hi') }}</span><br />
 					<span>{{ t('hero_intro') }}</span>
 				</h1>
-				<div class="h-full my-3" data-aos="fade-down" data-aos-delay="200">
+				<div class="h-full my-3">
 					<span ref="typedEl" class="text-2xl md:text-3xl font-geist-pixel" translate="no"></span>
 				</div>
-				<div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-5" data-aos="fade-down" data-aos-delay="250">
+				<div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-5">
 					<div class="flex flex-row items-center gap-2 text-5xl">
 						<a href="https://www.instagram.com/jstzaa28" target="_blank" rel="noopener noreferrer">
 							<i class="fa-brands fa-instagram hover:scale-105 transition-all duration-300"></i>

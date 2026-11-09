@@ -1,5 +1,8 @@
 <template>
 	<div class="dark:text-secondary min-h-screen">
+		<!-- Preloader Greetings -->
+		<PreloaderGreeting />
+
 		<!-- Desktop Navbar -->
 		<NavbarDesktop :active-section="activeSection" @select-section="handleSelectSection" />
 
@@ -33,6 +36,7 @@ import ProjectSection from "./components/ProjectSection.vue";
 import ExperienceSection from "./components/ExperienceSection.vue";
 import ContactSection from "./components/ContactSection.vue";
 import BackToTop from "./components/BackToTop.vue";
+import PreloaderGreeting from "./components/PreloaderGreeting.vue";
 import { useTheme } from "./composables/useTheme";
 
 const { initTheme } = useTheme();
